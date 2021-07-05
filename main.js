@@ -1,6 +1,7 @@
-var tit = document.getElementsByTagName("h1").
-tit.addEventListener("click", titchange)
+var tit = document.getElementsByTagName("h1");
+tit.appendChild("body")
+tit.addEventListener("click", titchange);
 
 titchange() {
-    tit.style.fontSize = "40px"
+    document.tit.style.fontSize = "40px"
 }
