@@ -165,15 +165,15 @@ window.addEventListener("hashchange", navigate); //to check if the hashtag chang
 var wrapper = document.getElementById("app");
 
 function navigate() {
-    if (
-        location.hash === "#product" ||
-        location.hash === "" ||
-        location.hash === "#"
-    ) {
-        product();
-    } else if (location.hash === "#buy") {
-        buy();
-    }
+	if (
+		location.hash === "#product" ||
+		location.hash === "" ||
+		location.hash === "#"
+	) {
+		product();
+	} else if (location.hash === "#buy") {
+		buy();
+	}
 }
 
 navigate();
@@ -181,41 +181,43 @@ navigate();
 //! Functions
 
 function product() {
-    wrapper.insertAdjacentHTML("beforeend", productHtml);
-    let product = document.getElementById("product").content;
-    let copyProduct = document.importNode(product, true);
+	wrapper.insertAdjacentHTML("beforeend", productHtml);
 
-    wrapper.appendChild(copyProduct);
-    document.querySelector(".product__button").addEventListener("click", goToBuy);
+	let product = document.getElementById("product").content;
+	let copyProduct = document.importNode(product, true);
+
+	wrapper.appendChild(copyProduct);
+	document.querySelector(".product__button").addEventListener("click", goToBuy);
+
+	wrapper.insertAdjacentHTML("beforeend", productHtml);
 }
 
 // new route
 function goToBuy(event) {
-    event.preventDefault();
-    window.location.hash = "#buy";
+	event.preventDefault();
+	window.location.hash = "#buy";
 }
 
 function goToHomepage() {
-    window.location.hash = "";
+	window.location.hash = "";
 }
 
 function buy() {
-    let nodoToRemove = wrapper.firstElementChild;
-    if (nodoToRemove) {
-        //remove event Listener before deleting de node
-        document
-            .querySelector(".product__button")
-            .removeEventListener("click", goToBuy);
+	if (wrapper.innerHTML != "") {
+		//remove event Listener before deleting de node
+		document
+			.querySelector(".product__button")
+			.removeEventListener("click", goToBuy);
 
-        wrapper.removeChild(nodoToRemove);
+		wrapper.innerHTML = "";
 
-        let buy = document.getElementById("form").content;
-        let copyBuy = document.importNode(buy, true);
+		//wrapper(nodoToRemove);
 
-        wrapper.appendChild(copyBuy);
-    } else {
-        goToHomepage();
-    }
+		let buy = document.getElementById("form").content;
+		let copyBuy = document.importNode(buy, true);
+
+		wrapper.appendChild(copyBuy);
+	} else {
+		goToHomepage();
+	}
 }
-
-console.log(productHtml);
