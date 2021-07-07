@@ -1,5 +1,5 @@
-import { wrapper } from './main.js'
-import { goToBuy, goToHomepage, goToAddress } from './router.js'
+import { wrapper } from "./main.js";
+import { goToBuy, goToHomepage, goToAddress } from "./router.js";
 
 let templateBuy = `
 <template id="form">
@@ -46,38 +46,38 @@ let templateBuy = `
 					<button class="go-next">Go Next</button>
 			</main>
 	</div>
-</template>`
+</template>`;
 
 function buy() {
-	if (wrapper.innerHTML != '') {
+	if (wrapper.innerHTML != "") {
 		//remove event Listener before deleting de node
 		document
-			.querySelector('.product__button')
-			.removeEventListener('click', goToBuy)
+			.querySelector(".product__button")
+			.removeEventListener("click", goToBuy);
 
-		wrapper.innerHTML = '' //Deletes everything
+		wrapper.innerHTML = ""; //Deletes everything
 
-		wrapper.insertAdjacentHTML('beforeend', templateBuy)
+		wrapper.insertAdjacentHTML("beforeend", templateBuy);
 
-		let buy = document.getElementById('form').content
-		let copyBuy = document.importNode(buy, true)
-		wrapper.appendChild(copyBuy)
+		let buy = document.getElementById("form").content;
+		let copyBuy = document.importNode(buy, true);
+		wrapper.appendChild(copyBuy);
 
-		actualStage() //after inserting the node, check stage and toggle class css to selected
+		actualStage(); //after inserting the node, check stage and toggle class css to selected
 
-		document.querySelector('.go-next').addEventListener('click', goToAddress)
+		document.querySelector(".go-next").addEventListener("click", goToAddress);
 	} else {
-		goToHomepage()
+		goToHomepage();
 	}
 }
 
 function actualStage() {
-	let page = location.hash.substr(1) //removes the hash #
-	let progressBarArray = document.getElementsByClassName('stage-progressBar')
+	let page = location.hash.substr(1); //removes the hash #
+	let progressBarArray = document.getElementsByClassName("stage-progressBar");
 
 	for (const isStage of progressBarArray) {
 		if (page === isStage.innerHTML.toLowerCase()) {
-			isStage.classList.toggle('stage-progressBar-selected')
+			isStage.classList.toggle("stage-progressBar-selected");
 		}
 	}
 }
@@ -85,4 +85,4 @@ function actualStage() {
 //*TODO
 //FORMULARIO CON VALIDACION
 
-export { buy }
+export { buy };
