@@ -1,3 +1,27 @@
+/** CSS de template Buy*/
+
+.profile-progressBar {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.stage-progressBar{
+
+    color: grey;
+}
+
+.stage-progressBar-selected{
+
+    color:red;
+    font-weight: bold;
+
+}
+/** CSS de template Buy FIN */
+
 /** RESET */
 
 html {
