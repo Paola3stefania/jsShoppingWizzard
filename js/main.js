@@ -157,70 +157,87 @@ let productHtml = `
     </main>
   </div>
 </template>
-`
+`;
 
 // let shippingForm = `
 
 // `
 // nuestra sección de router
 
-window.addEventListener('hashchange', navigate) //to check if the hashtag changes
-var wrapper = document.getElementById('app')
+//* Finish window
 
-function navigate() {
-	if (
-		location.hash === '#product' ||
-		location.hash === '' ||
-		location.hash === '#'
-	) {
-		product()
-	} else if (location.hash === '#buy') {
-		buy()
-	}
-}
-
-navigate()
+let finishHtml = `
+<template id="finish">
+    <div>
+        <h1>Your purchase</h1>
+        <div>
+            <img>
+        </div>
+        <div>
+            <h2>Brown t-shirt</h2>
+            <p>Size: <strong>M</strong></p>
+            <p>Color: </p>
+            <p>Estimate delivery date:</p>
+            <p>Between</p>
+            <p>and</p>
+        </div>
+        <form action="">
+            <imput type="checkbox" id="terms" name="terms" value="Terms and conditions">
+            <label for="terms">I have read and I accept the terms and conditions.</label>
+            <input type="submit" value="Buy Now">
+        </form>
+    </div>
+    <div>
+        <p>Your order</p>
+        <hr>
+        <p id="product"></p>
+        <p id="shipping"></p>
+        <hr>
+        <p id="total"></p>
+    </div>
+</template>
+`;
 
 //! Functions
 
 function product() {
-	wrapper.insertAdjacentHTML('beforeend', productHtml)
+  wrapper.insertAdjacentHTML("beforeend", productHtml);
 
-	let product = document.getElementById('product').content
-	let copyProduct = document.importNode(product, true)
+  let product = document.getElementById("product").content;
+  let copyProduct = document.importNode(product, true);
 
-	wrapper.appendChild(copyProduct)
-	document.querySelector('.product__button').addEventListener('click', goToBuy)
+  wrapper.appendChild(copyProduct);
+  document.querySelector(".product__button").addEventListener("click", goToBuy);
 
-	wrapper.insertAdjacentHTML('beforeend', productHtml)
+  wrapper.insertAdjacentHTML("beforeend", productHtml);
 }
 
 // new route
 function goToBuy(event) {
-	event.preventDefault()
-	window.location.hash = '#buy'
+  event.preventDefault();
+  window.location.hash = "#buy";
 }
 
 function goToHomepage() {
-	window.location.hash = ''
+  window.location.hash = "";
 }
 
 function buy() {
-	if (wrapper.innerHTML != '') {
-		//remove event Listener before deleting de node
-		document
-			.querySelector('.product__button')
-			.removeEventListener('click', goToBuy)
+  if (wrapper.innerHTML != "") {
+    //remove event Listener before deleting de node
+    document
+      .querySelector(".product__button")
+      .removeEventListener("click", goToBuy);
 
-		wrapper.innerHTML = ''
+    wrapper.innerHTML = "";
 
-		//wrapper(nodoToRemove);
+    //wrapper(nodoToRemove);
 
-		let buy = document.getElementById('form').content
-		let copyBuy = document.importNode(buy, true)
+    let buy = document.getElementById("form").content;
+    let copyBuy = document.importNode(buy, true);
 
-		wrapper.appendChild(copyBuy)
-	} else {
-		goToHomepage()
-	}
+    wrapper.appendChild(copyBuy);
+  } else {
+    goToHomepage();
+  }
 }
