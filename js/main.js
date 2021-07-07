@@ -159,9 +159,55 @@ let productHtml = `
 </template>
 `
 
-// let shippingForm = `
+let formHtml = `
+<template id="form">
+<div class="main-wrapper">
+  <main class="inner-container">
+    <h1>Step 3 - Shipping</h1>
+    <span>Barra de progreso</span>
+    <form action="">
+      <section>
+        <h2>Shipping</h2>
+        <p>Shipping type</p>
+        <p>Select a maintenance drone:</p>
+        <div>
+          <input type="radio" id="free" name="shipping" value="free" checked>
+          <label for="free">Free shipment (72H) <span class="bold-text">( no extra cost )</span></label>
+        </div>
 
-// `
+        <div>
+          <input type="radio" id="extra" name="shipping" value="extra">
+          <label for="extra">Extra shipping (48H) <span class="bold-text">( +5€ )</span></label>
+        </div>
+
+        <div>
+          <input type="radio" id="premium" name="shipping" value="premium">
+          <label for="premium">Premium (24h) <span class="bold-text">( +10€ )</span></label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="gift" name="gift" checked>
+          <label for="gift">Is it a gift?</label>
+        </div>
+        <div>
+          <div class="flex-column-between">
+            <label for="giftMessage">Gift message</label>
+            <textarea name="giftMessage" maxlength="200">Your message here</textarea>
+          </div>
+          <div>
+            <label for="gifImage">Gift wrapper image</label>
+            <input type="file" id="giftImage" name="giftImage" accept="image/png, image/jpeg">
+          </div>
+        </div>
+      </section>
+
+      <button type="reset">Clear form</button>
+      <button type="submit">Next</button>
+    </form>
+  </main>
+</div>
+</template>
+`
 // nuestra sección de router
 
 window.addEventListener('hashchange', navigate) //to check if the hashtag changes
@@ -220,6 +266,7 @@ function buy() {
 		let copyBuy = document.importNode(buy, true)
 
 		wrapper.appendChild(copyBuy)
+    // wrapper.insertAdjacentHTML('beforeend', formHtml)
 	} else {
 		goToHomepage()
 	}
