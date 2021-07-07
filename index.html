@@ -20,8 +20,40 @@
     <template id="form">
       <div class="main-wrapper">
         <main class="inner-container">
-          Container
-          <p>buy something form</p>
+          <h1>Step 3 - Shipping</h1>
+          <span>Barra de progreso</span>
+					<form action="">
+						<section>
+							<h2>Shipping</h2>
+							<p>Shipping type</p>
+							<p>Select a maintenance drone:</p>
+							<div>
+								<input type="radio" id="free" name="shipping" value="free" checked>
+								<label for="free">Free shipment (72H)</label>
+							</div>
+
+							<div>
+								<input type="radio" id="extra" name="shipping" value="extra">
+								<label for="extra">Extra shipping (48H) <span class="bold-text">4,99€</span></label>
+							</div>
+
+							<div>
+								<input type="radio" id="premium" name="shipping" value="premium">
+								<label for="premium">Premium (24h) <span class="bold-text">9,99€</span></label>
+							</div>
+							<div>
+								<input type="checkbox" id="gift" name="gift" checked>
+								<label for="gift">Is it a gift?</label>
+							</div>
+							<div class="flex-column-between">
+								<label for="giftMessage">Gift message</label>
+								<textarea name="giftMessage" rows="10" cols="50">Your message here</textarea>
+							</div>
+						</section>
+
+						<button class="button button-main">Clear form</button>
+						<button class="button button-secondary">Next</button>
+					</form>
         </main>
       </div>
     </template>
