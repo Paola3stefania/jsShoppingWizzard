@@ -1,8 +1,9 @@
 //TODO fix the js import
 //import productHtml from "templateProduct.js";
 
-//*Alert just a test
+import { navigate } from "./router.js";
 
+<<<<<<< HEAD
 let productHtml = `
 <template id="product">
   <div class="main-wrapper">
@@ -241,3 +242,13 @@ function buy() {
     goToHomepage();
   }
 }
+=======
+window.addEventListener("hashchange", navigate);
+var wrapper = document.getElementById("app");
+
+navigate();
+
+//! Functions
+
+export { wrapper };
+>>>>>>> main
