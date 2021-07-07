@@ -1,14 +1,16 @@
 import { wrapper } from './main.js'
 import { goToBuy, goToHomepage } from './router.js'
 
-let templateBuy = `<template id="form">
-<div class="main-wrapper">
-    <main class="inner-container">
-        Container
-        <p>buy something form</p>
-    </main>
-</div>
-</template>`;
+let templateBuy = `
+	<template id="form">
+		<div class="main-wrapper">
+			<main class="inner-container">
+				Container
+				<p>buy something form</p>
+			</main>
+		</div>
+	</template>
+`;
 
 function buy() {
 	if (wrapper.innerHTML != '') {
