@@ -1,8 +1,8 @@
 import { wrapper } from './main.js'
-import { goToBuy, goToHomepage } from './router.js'
+import { goToBuy } from './router.js'
 
 let shipping = `
-<template id="form">
+<template id="shipping">
 <div class="main-wrapper">
   <article class="inner-container">
     <header>
@@ -105,26 +105,16 @@ let shipping = `
 </template>
 `
 
-function buy() {
-	if (wrapper.innerHTML != '') {
-		//remove event Listener before deleting de node
-		document
-			.querySelector('.product__button')
-			.removeEventListener('click', goToBuy)
+function shipping() {
+  wrapper.insertAdjacentHTML('beforeend', shipping)
 
-		wrapper.innerHTML = ''
+  let shipping = document.getElementById('shipping').content
+  let copyShipping = document.importNode(shipping, true)
 
-		//wrapper(nodoToRemove);
-		wrapper.insertAdjacentHTML('beforeend', shipping)
-		let buy = document.getElementById('form').content
-		let copyBuy = document.importNode(buy, true)
+  wrapper.appendChild(copyShipping)
+  document.querySelector('.finish__button').addEventListener('click', goToBuy)
 
-		wrapper.appendChild(copyBuy)
-		console.log(wrapper);
-		wrapper.insertAdjacentHTML('beforeend', shipping)
-	} else {
-		goToHomepage()
-	}
+  wrapper.insertAdjacentHTML('beforeend', shipping)
 }
 
-export { buy }
+export { shipping }
