@@ -105,7 +105,7 @@ function shipping() {
   wrapper.insertAdjacentHTML('beforeend', shippingHtml)
 
   let shipping = document.getElementById('shipping').content
-  let copyShipping = document.importNode(shippingHtml, true)
+  let copyShipping = document.importNode(shipping, true)
 
 	wrapper.appendChild(copyShipping);
 	document.querySelector(".button-next").addEventListener("click", goToBuy);
