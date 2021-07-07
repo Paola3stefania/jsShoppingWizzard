@@ -1,4 +1,5 @@
-import { wrapper, goToBuy, goToHomepage } from "./main.js";
+import { wrapper } from "./main.js";
+import { goToBuy, goToHomepage } from "./router.js";
 
 function buy() {
 	if (wrapper.innerHTML != "") {

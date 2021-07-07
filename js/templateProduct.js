@@ -1,6 +1,7 @@
 //*Alert just a test
 
-import { wrapper, goToBuy } from "./main.js";
+import { wrapper } from "./main.js";
+import { goToBuy } from "./router.js";
 
 let productHtml = `
 <template id="product">
