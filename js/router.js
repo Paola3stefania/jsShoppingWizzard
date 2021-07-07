@@ -21,5 +21,8 @@ function goToBuy(event) {
 function goToHomepage() {
 	window.location.hash = "";
 }
+function goToAddress() {
+	window.location.hash = "address";
+}
 
-export { navigate, goToHomepage, goToBuy };
+export { navigate, goToHomepage, goToBuy, goToAddress };
