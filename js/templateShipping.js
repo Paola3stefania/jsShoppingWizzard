@@ -1,5 +1,5 @@
-import wrapper from './main.js'
-import goToBuy  from './router.js'
+import { wrapper } from './main.js'
+import { goToBuy, goToHomepage } from './router.js'
 
 let shipping = `
 <template id="form">
@@ -104,16 +104,27 @@ let shipping = `
 </div>
 </template>
 `
-function product() {
-	wrapper.insertAdjacentHTML("beforeend", productHtml);
 
-	let product = document.getElementById("product").content;
-	let copyProduct = document.importNode(product, true);
+function buy() {
+	if (wrapper.innerHTML != '') {
+		//remove event Listener before deleting de node
+		document
+			.querySelector('.product__button')
+			.removeEventListener('click', goToBuy)
 
-	wrapper.appendChild(copyProduct);
-	document.querySelector(".product__button").addEventListener("click", goToBuy);
+		wrapper.innerHTML = ''
 
-	wrapper.insertAdjacentHTML("beforeend", productHtml);
+		//wrapper(nodoToRemove);
+		wrapper.insertAdjacentHTML('beforeend', shipping)
+		let buy = document.getElementById('form').content
+		let copyBuy = document.importNode(buy, true)
+
+		wrapper.appendChild(copyBuy)
+		console.log(wrapper);
+		wrapper.insertAdjacentHTML('beforeend', shipping)
+	} else {
+		goToHomepage()
+	}
 }
 
-export { product };
+export { buy }
