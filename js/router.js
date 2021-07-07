@@ -8,18 +8,23 @@ function navigate() {
 		location.hash === "#"
 	) {
 		product();
-	} else if (location.hash === "#buy") {
+	} else if (location.hash === "#profile") {
 		buy();
 	}
 }
 
 function goToBuy(event) {
 	event.preventDefault();
-	window.location.hash = "#buy";
+	window.location.hash = "#profile";
 }
 
 function goToHomepage() {
 	window.location.hash = "";
 }
 
-export { navigate, goToHomepage, goToBuy };
+function goToAddress(event) {
+	event.preventDefault();
+	window.location.hash = "#address";
+}
+
+export { navigate, goToHomepage, goToBuy, goToAddress };
