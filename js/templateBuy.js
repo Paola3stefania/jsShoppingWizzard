@@ -4,47 +4,103 @@ import { goToBuy, goToHomepage, goToAddress } from './router.js'
 let templateBuy = `
 <template id="form">
 	<div class="main-wrapper">
-			<main class="inner-container">
-					<div>
-							<ul class="profile-progressBar">
-									<li class="stage-progressBar">Profile</li>
-									<li class="stage-progressBar">Address</li>
-									<li class="stage-progressBar">Shipping</li>
-									<li class="stage-progressBar">Finish</li>
-							</ul>
-					</div>
+		<article class="inner-container">
+		<header>
+    <h1 class="main-title">Step 3 - Shipping</h1>
+    <div class="shopping-bar">
+      <div class="line"></div>
+      <ul class="text-progress">
+        <li><strong>Profile</strong></li>
+        <li><strong>Address</strong></li>
+        <li><strong>Shoping</strong></li>
+        <li><strong>Finish</strong></li>
+      </ul>
+      <ul class="checkpoints">
+        <li>
+          <div class="circle"></div>
+        </li>
+        <li>
+          <div class="circle"></div>
+        </li>
+        <li>
+          <div class="circle"></div>
+        </li>
+        <li>
+          <div class="circle"></div>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="form-content">
+      <form action="">
+        <section>
+          <h2>Shipping</h2>
+          <p>Shipping type</p>
+          <p>Select a maintenance drone:</p>
+          <div>
+            <input
+              type="radio"
+              id="free"
+              name="shipping"
+              value="free"
+              checked
+            />
+            <label for="free"
+              >Free shipment (72H)
+              <span class="bold-text">( no extra cost )</span></label
+            >
+          </div>
 
-					<div>
-							<form action="" method="post">
-									<ul>
-									<li>
-									<label for="name">UserName:</label>
-									<input type="text" id="name" name="user_name">
-									</li>
-									<li>
-									<label for="mail">Email:</label>
-									<input type="email" id="mail" name="user_email">
-									</li>
-									<li>
-											<label for="user-pwd">Password</label>
-											<input type="password" name="user-password" id="user-pwd">
-									</li>
-									<li>
-											<label for="conf-user-pwd">Confirm Password</label>
-											<input type="password" name="conf-user-password" id="conf-user-pwd">
-									</li>
-									<li class="button">
-											<button type="submit" value="Submit">Send your message</button>
-									</li>
-									<li class="button">
-											<button type="reset" value="Reset">Reset All</button>
-									</li>
-									</ul>
-							</form>
-					</div>
+          <div>
+            <input type="radio" id="extra" name="shipping" value="extra" />
+            <label for="extra"
+              >Extra shipping (48H)
+              <span class="bold-text">( +5€ )</span></label
+            >
+          </div>
 
-					<button class="go-next">Go Next</button>
-			</main>
+          <div>
+            <input
+              type="radio"
+              id="premium"
+              name="shipping"
+              value="premium"
+            />
+            <label for="premium"
+              >Premium (24h) <span class="bold-text">( +10€ )</span></label
+            >
+          </div>
+
+          <div>
+            <input type="checkbox" id="gift" name="gift" checked />
+            <label for="gift">Is it a gift?</label>
+          </div>
+          <div>
+            <div class="flex-column-between">
+              <label for="giftMessage">Gift message</label>
+              <textarea name="giftMessage" maxlength="200">Your message here</textarea
+              >
+            </div>
+            <div>
+              <label for="gifImage">Gift wrapper image</label>
+              <input
+                type="file"
+                id="giftImage"
+                name="giftImage"
+                accept="image/png, image/jpeg"
+              />
+            </div>
+          </div>
+        </section>
+
+        <button type="reset" class="buttons main_button">Clear form</button>
+        <button type="submit" class="buttons sec_button button-next">Next</button>
+      </form>
+    </div>
+    <div class="timer"></div>
+  </main>
+		</article>
 	</div>
 </template>`
 
