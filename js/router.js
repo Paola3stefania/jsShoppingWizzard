@@ -15,7 +15,7 @@ function navigate() {
 
 function goToBuy(event) {
 	event.preventDefault();
-	window.location.hash = "#profile";
+	window.location.hash = "profile";
 }
 
 function goToHomepage() {
