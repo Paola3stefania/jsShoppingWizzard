@@ -53,12 +53,12 @@ function address() {
     if (wrapper.innerHTML != "") {
         //remove event Listener before deleting de node
         document
-            .querySelector(".product__button")
-            .removeEventListener("click", goToBuy);
+            .querySelector(".go-next")
+            .removeEventListener("click", goToShipping);
 
         wrapper.innerHTML = ""; //Deletes everything
 
-        wrapper.insertAdjacentHTML("beforeend", templateBuy);
+        wrapper.insertAdjacentHTML("beforeend", templateAddress);
 
         let buy = document.getElementById("form").content;
         let copyBuy = document.importNode(buy, true);
