@@ -1,23 +1,25 @@
+/** CSS de template Buy*/
+
 .profile-progressBar {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	align-content: center;
-	flex-direction: row;
-	flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
-.stage-progressBar{
-
+.stage-progressBar {
     color: grey;
 }
 
-.stage-progressBar-selected{
-
-    color:red;
+.stage-progressBar-selected {
+    color: red;
     font-weight: bold;
-
 }
+
+
+/** CSS de template Buy FIN */
 
 
 /** RESET */
@@ -80,7 +82,8 @@ body {
 
 /** MENU */
 
-.menu a {
+
+/* .menu a {
 	color: #cf2c30;
 	font-weight: 600;
 	text-decoration: none;
@@ -92,7 +95,7 @@ body {
 
 .menu li:not(:last-child) {
 	padding-right: 1.5rem;
-}
+} */
 
 /** CATEGORIES */
 
@@ -422,20 +425,18 @@ body {
 
 /*FORM COMMON AREAS*/
 
-h2 {
-	text-align: left;
-	font-size: 1.5rem;
-	margin-left: 0.3125rem;
+.main-title {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-left: 0.3125rem;
 }
 
-#shopping_bar {
-	background-color: rgba(171, 158, 158, 0.313);
-	height: 2.5rem;
-	width: 100%;
-	position: absolute;
-	z-index: 1;
-	margin-left: 0.125rem;
-	margin-right: 0.125rem;
+.shopping-bar {
+    background-color: rgba(171, 158, 158, 0.313);
+    height: 2.5rem;
+    z-index: 1;
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
 }
 
 .line {
@@ -448,11 +449,11 @@ h2 {
 	z-index: 2;
 }
 
-.text_progress {
-	display: flex;
-	justify-content: space-around;
-	z-index: 3;
-	position: relative;
+.text-progress {
+    display: flex;
+    justify-content: space-around;
+    z-index: 3;
+    position: relative;
 }
 
 .checkpoints {
@@ -470,49 +471,45 @@ h2 {
 	border: solid 0.0625rem black;
 }
 
-#main_content {
-	display: flex;
-	justify-content: space-between;
-	position: inherit;
-	margin-top: 3rem;
-	margin-left: 0.3125rem;
-	margin-right: 0.3125rem;
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    position: inherit;
+    margin-top: 3rem;
+    margin-left: 0.3125rem;
+    margin-right: 0.3125rem;
 }
 
-#form_content {
-	height: 31.25rem;
-	width: 10.25rem;
-	border: solid 0.1875rem black;
+.form-content {
+    height: 31.25rem;
+    border: solid 0.1875rem black;
 }
 
-#timer {
-	height: 6.25rem;
-	width: 6.25rem;
-	border: solid 0.1875rem black;
-}
-
-#buttons {
-	display: flex;
-	justify-content: flex-end;
-	margin: 0.625rem;
+.timer {
+    height: 6.25rem;
+    width: 6.25rem;
+    border: solid 0.1875rem black;
 }
 
 .buttons {
-	width: 4.5rem;
-	height: 1.75rem;
-	border-radius: 0.1875rem;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.625rem;
+    width: 4.5rem;
+    height: 1.75rem;
+    border-radius: 0.1875rem;
 }
 
-.main_button {
-	background-color: white;
-	color: black;
-	margin-right: 0.3125rem;
-	border: solid 0.0625rem black;
+.main-button {
+    background-color: white;
+    color: black;
+    margin-right: 0.3125rem;
+    border: solid 0.0625rem black;
 }
 
-.sec_button {
-	background-color: black;
-	color: white;
-	margin-left: 0.3125rem;
-	border: solid 0.0625rem white;
+.sec-button {
+    background-color: black;
+    color: white;
+    margin-left: 0.3125rem;
+    border: solid 0.0625rem white;
 }
