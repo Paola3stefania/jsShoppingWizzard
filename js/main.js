@@ -3,35 +3,11 @@
 
 import { navigate } from "./router.js";
 
-// nuestra sección de router
-
-window.addEventListener("hashchange", navigate); //to check if the hashtag changes
+window.addEventListener("hashchange", navigate);
 var wrapper = document.getElementById("app");
-
-/* function navigate() {
-	if (
-		location.hash === "#product" ||
-		location.hash === "" ||
-		location.hash === "#"
-	) {
-		product();
-	} else if (location.hash === "#buy") {
-		buy();
-	}
-} */
 
 navigate();
 
 //! Functions
-
-// new route
-/* function goToBuy(event) {
-	event.preventDefault();
-	window.location.hash = "#buy";
-}
-
-function goToHomepage() {
-	window.location.hash = "";
-} */
 
 export { wrapper };
