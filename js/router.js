@@ -10,6 +10,8 @@ function navigate() {
 		product();
 	} else if (location.hash === "#profile") {
 		buy();
+	} else if (location.hash === "#address") {
+		address();
 	}
 }
 
