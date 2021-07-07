@@ -8,14 +8,14 @@ function navigate() {
 		location.hash === "#"
 	) {
 		product();
-	} else if (location.hash === "#buy") {
+	} else if (location.hash === "#profile") {
 		buy();
 	}
 }
 
 function goToBuy(event) {
 	event.preventDefault();
-	window.location.hash = "#buy";
+	window.location.hash = "#profile";
 }
 
 function goToHomepage() {
