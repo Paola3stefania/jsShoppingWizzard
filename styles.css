@@ -400,7 +400,7 @@ body {
 
 /*FORM COMMON AREAS*/
 
-h2 {
+.main-title {
   text-align: left;
   font-size: 1.5rem;
   margin-left: 0.3125rem;
@@ -409,8 +409,6 @@ h2 {
 .shopping-bar {
   background-color: rgba(171, 158, 158, 0.313);
   height: 2.5rem;
-  width: 100%;
-  position: absolute;
   z-index: 1;
   margin-left: 0.125rem;
   margin-right: 0.125rem;
@@ -459,7 +457,6 @@ h2 {
 
 .form-content {
   height: 31.25rem;
-  width: 10.25rem;
   border: solid 0.1875rem black;
 }
 
