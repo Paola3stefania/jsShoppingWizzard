@@ -50,37 +50,37 @@ let templateAddress = `
 </template>`;
 
 function address() {
-    if (wrapper.innerHTML != "") {
-        //remove event Listener before deleting de node
-        document
-            .querySelector(".go-next")
-            .removeEventListener("click", goToShipping);
+	if (wrapper.innerHTML != "") {
+		//remove event Listener before deleting de node
+		document
+			.querySelector(".go-next")
+			.removeEventListener("click", goToShipping);
 
-        wrapper.innerHTML = ""; //Deletes everything
+		wrapper.innerHTML = ""; //Deletes everything
 
-        wrapper.insertAdjacentHTML("beforeend", templateAddress);
+		wrapper.insertAdjacentHTML("beforeend", templateAddress);
 
-        let buy = document.getElementById("form").content;
-        let copyBuy = document.importNode(buy, true);
-        wrapper.appendChild(copyBuy);
+		let buy = document.getElementById("form").content;
+		let copyBuy = document.importNode(buy, true);
+		wrapper.appendChild(copyBuy);
 
-        actualStage(); //after inserting the node, check stage and toggle class css to selected
+		actualStage(); //after inserting the node, check stage and toggle class css to selected
 
-        document.querySelector(".go-next").addEventListener("click", goToShipping);
-    } else {
-        goToHomepage();
-    }
+		document.querySelector(".go-next").addEventListener("click", goToShipping);
+	} else {
+		goToHomepage();
+	}
 }
 
 function actualStage() {
-    let page = location.hash.substr(1); //removes the hash #
-    let progressBarArray = document.getElementsByClassName("stage-progressBar");
+	let page = location.hash.substr(1); //removes the hash #
+	let progressBarArray = document.getElementsByClassName("stage-progressBar");
 
-    for (const isStage of progressBarArray) {
-        if (page === isStage.innerHTML.toLowerCase()) {
-            isStage.classList.toggle("stage-progressBar-selected");
-        }
-    }
+	for (const isStage of progressBarArray) {
+		if (page === isStage.innerHTML.toLowerCase()) {
+			isStage.classList.toggle("stage-progressBar-selected");
+		}
+	}
 }
 
 //*TODO

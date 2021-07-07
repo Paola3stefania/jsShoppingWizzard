@@ -1,5 +1,5 @@
-import { wrapper } from './main.js'
-import { goToBuy } from './router.js'
+import { wrapper } from "./main.js";
+import { goToBuy } from "./router.js";
 
 let shippingHtml = `
 <template id="shipping">
@@ -99,7 +99,7 @@ let shippingHtml = `
     <div id="timer"></div>
   </main>
 </template>
-`
+`;
 
 function shipping() {
   wrapper.insertAdjacentHTML('beforeend', shippingHtml)
@@ -107,10 +107,10 @@ function shipping() {
   let shipping = document.getElementById('shipping').content
   let copyShipping = document.importNode(shippingHtml, true)
 
-  wrapper.appendChild(copyShipping)
-  document.querySelector('.button-next').addEventListener('click', goToBuy)
+	wrapper.appendChild(copyShipping);
+	document.querySelector(".button-next").addEventListener("click", goToBuy);
 
   wrapper.insertAdjacentHTML('beforeend', shippingHtml)
 }
 
-export { shipping }
+export { shipping };
