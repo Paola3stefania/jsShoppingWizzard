@@ -39,13 +39,14 @@ let templateBuy = `
 					<ul>
 						<li>
 							<label for="name">UserName: </label>
-							<input type="text" id="name" name="user_name" required />
+							<input class="input-profile" type="text" id="name" name="user_name" required />
 						</li>
 						<li>
 							<label for="mail">Email: </label>
 								
 								<input
 									type="email"
+									class="input-profile"
 									id="profile-mail"
 									name="user_email"
 									required
@@ -57,6 +58,7 @@ let templateBuy = `
 							<label for="user-pwd">Password: </label>
 							<input
 								type="password"
+								class="input-profile"
 								name="user-password"
 								id="profile-user-pwd"
 								required
@@ -67,6 +69,7 @@ let templateBuy = `
 							<label for="conf-user-pwd">Confirm Password: </label>
 							<input
 								type="password"
+								class="input-profile"
 								name="conf-user-password"
 								id="conf-user-pwd"
 								required
@@ -77,7 +80,7 @@ let templateBuy = `
 							<input
 								type="reset"
 								id="clear"
-								class="profile-submit-buttons"
+								class="profile-submit-buttons input-profile"
 								name="clear"
 								value="Clear All"
 							/>
@@ -86,7 +89,7 @@ let templateBuy = `
 								id="next"
 								name="next"
 								value="Next"
-								class="go-next profile-submit-buttons"
+								class="go-next profile-submit-buttons input-profile"
 							/>
 						</div>
 					</ul>

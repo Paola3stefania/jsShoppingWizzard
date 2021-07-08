@@ -533,12 +533,20 @@ body {
     border: solid 0.0625rem white;
 }
 
-input {
+.input-profile {
     background-color: transparent;
     border: solid 0.03125rem black;
     width: 100%;
     margin: 0.2rem 0;
 }
+
+input {
+    background-color: transparent;
+    border: solid 0.03125rem black;
+    width: 7.125rem;
+    
+}
+
 
 .form-control {
     background-color: transparent;
