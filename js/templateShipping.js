@@ -94,7 +94,7 @@ let shippingHtml = `
           </section>
           <div id="buttons" class="buttons">
             <input type="reset" id="clear" name="clear" value="Clear Form" class="buttons main-button" />
-            <input type="submit" id="next" name="next" value="Next" class="buttons sec-button go-next" />
+            <input type="submit" id="next" name="next" value="Next" class="buttons sec-button button-next" />
           </div>
         </form>
       </div>
