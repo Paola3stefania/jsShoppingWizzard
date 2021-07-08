@@ -2,69 +2,185 @@ import { wrapper } from "./main.js";
 import { goToBuy, goToHomepage, goToAddress } from "./router.js";
 
 //template
+
 let templateBuy = `
 <template id="form">
-    <div class="main-wrapper">
-    <h1>Profile</h1>
-        <div id="profile-bar" class="profile-bar">
-            <div class="line"></div>
-                <ul class="text-progress">
-                    <li class="stage-progressBar">Profile</li>
-                    <li class="stage-progressBar">Address</li>
-                    <li class="stage-progressBar">Shipping</li>
-                    <li class="stage-progressBar">Finish</li>
-                </ul>
-                <ul class="checkpoints">
-                <li>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-            </div>
+<div class="main-wrapper">
+	<div>
+		<h1>Step 1 - Profile</h1>
+		<div id="shopping-bar" class="shopping-bar">
+			<div class="line"></div>
+			<ul class="text-progress">
+				<li class="stage-progressBar">Profile</li>
+				<li class="stage-progressBar">Address</li>
+				<li class="stage-progressBar">Shipping</li>
+				<li class="stage-progressBar">Finish</li>
+			</ul>
+			<ul class="checkpoints">
+				<li>
+					<div class="circle"></div>
+				</li>
+				<li>
+					<div class="circle"></div>
+				</li>
+				<li>
+					<div class="circle"></div>
+				</li>
+				<li>
+					<div class="circle"></div>
+				</li>
+			</ul>
+		</div>
 
-            <main id="main-content" class="main-content">
-                <div id="form-content" class="form-content">
-                    <form id="profile-form" action="" method="post">
-                        <ul>
-                        <li>
-                        <label for="name">UserName:</label>
-                        <input type="text" id="name" name="user_name" required>
-                        </li>
-                        <li>
-                        <label for="mail">Email:
-                        <input type="email" id="profile-mail" name="user_email" required>
-						<span class="email-error" aria-live="polite"></span>
-						</label>
-                        </li>
-                        <li>
-                            <label for="user-pwd">Password</label>
-                            <input type="password" name="user-password" id="profile-user-pwd" required>
+		<main id="main-content" class="main-content">
+			<div id="form-content" class="form-content">
+				<h2>Profile</h2>
+				<form id="profile-form" action="" method="post">
+					<ul>
+						<li>
+							<label for="name">UserName: </label>
+							<input type="text" id="name" name="user_name" required />
+						</li>
+						<li>
+							<label for="mail">Email: </label>
+								
+								<input
+									type="email"
+									id="profile-mail"
+									name="user_email"
+									required
+								/>
+								<span class="email-error" aria-live="polite"></span>
+							
+						</li>
+						<li>
+							<label for="user-pwd">Password: </label>
+							<input
+								type="password"
+								name="user-password"
+								id="profile-user-pwd"
+								required
+							/>
 							<span class="pwd-error" aria-live="polite"></span>
-                        </li>
-                        <li>
-                            <label for="conf-user-pwd">Confirm Password</label>
-                            <input type="password" name="conf-user-password" id="conf-user-pwd" required>
+						</li>
+						<li>
+							<label for="conf-user-pwd">Confirm Password: </label>
+							<input
+								type="password"
+								name="conf-user-password"
+								id="conf-user-pwd"
+								required
+							/>
 							<span class="pwd-conf-error" aria-live="polite"></span>
-                        </li>
-                        <li class="buttons main-button go-next">
-                            <button type="submit" value="Submit">Go Next</button>
-                        </li>
-                        <li class="buttons sec-button">
-                        <button type="reset" value="Reset">Reset All</button>
-                        </li>
-                            </ul>
-                        </form>
+						</li>
+						<div id="buttons" class="buttons">
+							<input
+								type="reset"
+								id="clear"
+								class="profile-submit-buttons"
+								name="clear"
+								value="Clear All"
+							/>
+							<input
+								type="submit"
+								id="next"
+								name="next"
+								value="Next"
+								class="go-next profile-submit-buttons"
+							/>
+						</div>
+					</ul>
+				</form>
+			</div>
+			<div id="timer" class="timer"></div>
+		</main>
+	</div>
+</div>
+</template>`;
+
+let templateBuy2 = `
+<template id="form">
+			<div class="main-wrapper">
+				<div>
+					<h1>Step 1 - Profile</h1>
+					<div id="profile-bar" class="profile-bar">
+						<div class="line"></div>
+						<ul class="text-progress">
+							<li class="stage-progressBar">Profile</li>
+							<li class="stage-progressBar">Address</li>
+							<li class="stage-progressBar">Shipping</li>
+							<li class="stage-progressBar">Finish</li>
+						</ul>
+						<ul class="checkpoints">
+							<li>
+								<div class="circle"></div>
+							</li>
+							<li>
+								<div class="circle"></div>
+							</li>
+							<li>
+								<div class="circle"></div>
+							</li>
+							<li>
+								<div class="circle"></div>
+							</li>
+						</ul>
+					</div>
+
+					<main id="main-content" class="main-content">
+						<div id="form-content" class="form-content">
+							<h2>Profile</h2>
+							<form id="profile-form" action="" method="post">
+								<ul>
+									<li>
+										<label for="name">UserName:</label>
+										<input type="text" id="name" name="user_name" required />
+									</li>
+									<li>
+										<label for="mail"
+											>Email:
+											<input
+												type="email"
+												id="profile-mail"
+												name="user_email"
+												required
+											/>
+											<span class="email-error" aria-live="polite"></span>
+										</label>
+									</li>
+									<li>
+										<label for="user-pwd">Password</label>
+										<input
+											type="password"
+											name="user-password"
+											id="profile-user-pwd"
+											required
+										/>
+										<span class="pwd-error" aria-live="polite"></span>
+									</li>
+									<li>
+										<label for="conf-user-pwd">Confirm Password</label>
+										<input
+											type="password"
+											name="conf-user-password"
+											id="conf-user-pwd"
+											required
+										/>
+										<span class="pwd-conf-error" aria-live="polite"></span>
+									</li>
+									<li class="buttons main-button go-next">
+										<button type="submit" value="Submit">Go Next</button>
+									</li>
+									<li class="buttons sec-button">
+										<button type="reset" value="Reset">Reset All</button>
+									</li>
+								</ul>
+							</form>
+						</div>
+						<div id="timer" class="timer"></div>
+					</main>
 				</div>
-                <div id="timer" class="timer"></div>
-			</main>
+			</div>
 		</template>
 `;
 
