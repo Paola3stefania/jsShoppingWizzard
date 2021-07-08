@@ -5,14 +5,14 @@ let templateAddress = `
 <template id="form">
 	<div class="main-wrapper">
 			<div>
-        <h1>Step 1 - Address</h1>
+        <h1>Step 2 - Address</h1>
         <div id="shopping-bar" class="shopping-bar">
             <div class="line"></div>
             <ul class="text-progress">
-                <li><strong>Profile</strong></li>
-                <li><strong>Address</strong></li>
-                <li><strong>Shoping</strong></li>
-                <li><strong>Finish</strong></li>
+                <li>Profile</li>
+                <li>Address</li>
+                <li>Shipping</li>
+                <li>Finish<</li>
             </ul>
             <ul class="checkpoints">
                 <li>
