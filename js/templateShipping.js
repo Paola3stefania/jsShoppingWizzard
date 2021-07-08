@@ -1,5 +1,5 @@
 import { wrapper } from "./main.js";
-import { goToBuy, goToFinish } from "./router.js";
+import {  goToShippingPremium } from "./router.js";
 
 let shippingHtml = `
 <template id="shipping">
@@ -32,7 +32,6 @@ let shippingHtml = `
     </header>
     <main class="main-content">
       <div class="form-content">
-        <form action="">
           <section>
             <h2>Shipping</h2>
             <p>Shipping type</p>
@@ -70,12 +69,9 @@ let shippingHtml = `
                 >Premium (24h) <span class="bold-text">( +10€ )</span></label
               >
             </div>
-
-            <div>
-              <input type="checkbox" id="gift" name="gift" checked />
-              <label for="gift">Is it a gift?</label>
-            </div>
-            <div>
+            <input type="checkbox" id="gift" name="gift" class="toggle-gift" />
+            <label for="gift">Is it a gift?</label>
+            <div class="--hide">
               <div class="flex-column-between">
                 <label for="giftMessage">Gift message</label>
                 <textarea name="giftMessage" maxlength="200">Your message here</textarea
@@ -96,7 +92,6 @@ let shippingHtml = `
             <input type="reset" id="clear" name="clear" value="Clear Form" class="buttons main-button" />
             <input type="submit" id="next" name="next" value="Next" class="buttons sec-button button-next" />
           </div>
-        </form>
       </div>
       <div class="timer"></div>
     </main>
@@ -105,16 +100,16 @@ let shippingHtml = `
 `;
 
 function shipping() {
-  wrapper.innerHTML = "";
-  wrapper.insertAdjacentHTML("beforeend", shippingHtml);
+    wrapper.innerHTML = "";
+    wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 
-  let shipping = document.getElementById("shipping").content;
-  let copyShipping = document.importNode(shipping, true);
+    let shipping = document.getElementById("shipping").content;
+    let copyShipping = document.importNode(shipping, true);
 
-  wrapper.appendChild(copyShipping);
-  document.querySelector(".button-next").addEventListener("click", goToFinish);
+    wrapper.appendChild(copyShipping);
+    document.querySelector(".button-next").addEventListener("click", goToShippingPremium);
 
-  wrapper.insertAdjacentHTML("beforeend", shippingHtml);
+    wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 }
 
 export { shipping };
