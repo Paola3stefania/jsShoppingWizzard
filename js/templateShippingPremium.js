@@ -72,7 +72,7 @@ let shippingPrHtml = `
             </div>
             <input type="checkbox" id="gift" name="gift" class="toggle-gift" />
             <label for="gift">Is it a gift?</label>
-            <div class="--hide">
+            <div class="gift-fields --isVisible">
               <div class="flex-column-between">
                 <label for="giftMessage">Gift message</label>
                 <textarea name="giftMessage" maxlength="200">Your message here</textarea
