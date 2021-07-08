@@ -213,7 +213,8 @@ function validateProfile() {
 	const confPwdError = document.querySelector(".pwd-conf-error");
 
 	confUserPwd.addEventListener("change", function () {
-		const test = userPwd.value == confUserPwd.value;
+		console.log(userPwd.value, confUserPwd.value);
+		const test = userPwd.value === confUserPwd.value;
 
 		if (test) {
 			confPwdError.innerHTML = "";
