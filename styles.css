@@ -1,58 +1,3 @@
-/** CSS de template Buy*/
-
-.profile-progressBar {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-.stage-progressBar {
-    color: grey;
-}
-
-.stage-progressBar-selected {
-    color: red;
-    font-weight: bold;
-}
-
-
-/*testing invalid form fields
-
-/* This is the style for the invalid fields */
-
-input.invalid {
-    border-color: #900;
-    background-color: #fdd;
-}
-
-input:focus.invalid {
-    outline: none;
-}
-
-
-/* This is the style of our error messages */
-
-.error {
-    width: 100%;
-    padding: 0;
-    font-size: 80%;
-    color: white;
-    background-color: #900;
-    border-radius: 0 0 5px 5px;
-    box-sizing: border-box;
-}
-
-.error.active {
-    padding: 0.3em;
-}
-
-
-/** CSS de template Buy FIN */
-
-
 /** RESET */
 
 html {
@@ -112,6 +57,16 @@ body {
     left: 2rem;
     transform: translate(0, -50%);
     text-transform: uppercase;
+}
+
+
+/** MENU */
+
+
+/* .menu a {
+	color: #cf2c30;
+	font-weight: 600;
+	text-decoration: none;
 }
 
 
@@ -449,7 +404,7 @@ body {
 
 /**FORM COMMON AREAS*/
 
-h1 {
+.main-title {
     text-align: left;
     font-size: 1.5rem;
     margin-left: 0.3125rem;
@@ -458,8 +413,6 @@ h1 {
 .shopping-bar {
     background-color: rgba(171, 158, 158, 0.313);
     height: 2.5rem;
-    width: 100%;
-    position: absolute;
     z-index: 1;
     margin-left: 0.125rem;
     margin-right: 0.125rem;
@@ -512,7 +465,7 @@ h1 {
 }
 
 .form-content {
-    height: 31.25rem;
+    height: 100vh;
 }
 
 .timer {
@@ -521,7 +474,7 @@ h1 {
     border: solid 0.1875rem black;
 }
 
-div.buttons {
+.buttons {
     display: flex;
     justify-content: flex-end;
     margin: 0.625rem;
@@ -561,3 +514,58 @@ select {
     border: solid 0.03125rem black;
     width: 3.125rem;
 }
+
+
+/** CSS de template Buy*/
+
+.profile-progressBar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.stage-progressBar {
+    color: grey;
+}
+
+.stage-progressBar-selected {
+    color: red;
+    font-weight: bold;
+}
+
+
+/*testing invalid form fields
+
+/* This is the style for the invalid fields */
+
+input.invalid {
+    border-color: #900;
+    background-color: #fdd;
+}
+
+input:focus.invalid {
+    outline: none;
+}
+
+
+/* This is the style of our error messages */
+
+.error {
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.3em;
+}
+
+
+/** CSS de template Buy FIN */

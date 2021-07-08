@@ -1,7 +1,5 @@
-//*Alert just a test
-
 import { wrapper } from "./main.js";
-import { goToBuy } from "./router.js";
+import { goToHomepage, goToThankYou } from "./router.js";
 
 let finishHtml = `
 <template id="finish">
@@ -36,13 +34,25 @@ let finishHtml = `
 `;
 
 function finish() {
+<<<<<<< HEAD
     wrapper.insertAdjacentHTML("beforeend", finishHtml);
+=======
+  wrapper.innerHTML = "";
+  wrapper.insertAdjacentHTML("beforeend", finishHtml);
+>>>>>>> e10da88a0e5d048900080d18981bc52c09aafc2a
 
     let finish = document.getElementById("finish").content;
     let copyFinish = document.importNode(finish, true);
 
+<<<<<<< HEAD
     wrapper.appendChild(copyFinish);
     document.querySelector(".finish__button").addEventListener("click", goToBuy); //TODO change goToBuy
+=======
+  wrapper.appendChild(copyFinish);
+  document
+    .querySelector(".finish__button")
+    .addEventListener("click", goToThankYou);
+>>>>>>> e10da88a0e5d048900080d18981bc52c09aafc2a
 
     wrapper.insertAdjacentHTML("beforeend", finishHtml);
 }
