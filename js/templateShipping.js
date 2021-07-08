@@ -104,6 +104,7 @@ let shippingHtml = `
 `;
 
 function shipping() {
+  wrapper.innerHTML = ''
   wrapper.insertAdjacentHTML('beforeend', shippingHtml)
 
   let shipping = document.getElementById('shipping').content
