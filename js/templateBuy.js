@@ -38,16 +38,20 @@ let templateBuy = `
                         <input type="text" id="name" name="user_name" required>
                         </li>
                         <li>
-                        <label for="mail">Email:</label>
-                        <input type="email" id="mail" name="user_email" required>
+                        <label for="mail">Email:
+                        <input type="email" id="profile-mail" name="user_email" required>
+						<span class="email-error" aria-live="polite"></span>
+						</label>
                         </li>
                         <li>
                             <label for="user-pwd">Password</label>
-                            <input type="password" name="user-password" id="user-pwd" required>
+                            <input type="password" name="user-password" id="profile-user-pwd" required>
+							<span class="pwd-error" aria-live="polite"></span>
                         </li>
                         <li>
                             <label for="conf-user-pwd">Confirm Password</label>
                             <input type="password" name="conf-user-password" id="conf-user-pwd" required>
+							<span class="pwd-conf-error" aria-live="polite"></span>
                         </li>
                         <li class="buttons main-button go-next">
                             <button type="submit" value="Submit">Go Next</button>
@@ -104,105 +108,81 @@ function actualStage() {
 
 function sendForm(event) {
 	event.preventDefault();
-
 	goToAddress();
 }
-//*TODO
-//FORMULARIO CON VALIDACION
-
-let regExpPass =
-	/^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-zd$@$!%*?&#.$($)$-$_]{ 8,15} $/;
-let regExpEmail =
-	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 function validateProfile() {
-	const email = document.getElementById("mail");
+	//FORMULARIO CON VALIDACION - REGEX
+
+	let regExpPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+	/*
+		/^
+		(?=.*\d)          should contain at least one digit
+		(?=.*[a-z])       should contain at least one lower case
+		(?=.*[A-Z])       should contain at least one upper case
+		[a-zA-Z0-9]{8,}   should contain at least 8 from the mentioned characters
+		$/
+	*/
+
+	let regExpEmail =
+		/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+	//email
+	const email = document.getElementById("profile-mail");
+	const emailError = document.querySelector(".email-error");
+
 	email.addEventListener("change", function () {
-		const test = email.value.length === 0 || regExpEmail.test(email.innerHTML);
+		const test = regExpEmail.test(email.value);
+
 		if (test) {
-			email.className = "valid";
-			error.textContent = "";
-			error.className = "error";
+			emailError.innerHTML = "";
+			email.classList.add("valid");
+			email.classList.remove("invalid");
 		} else {
-			email.className = "invalid";
+			email.classList.remove("valid");
+			email.classList.add("invalid");
+			emailError.innerHTML = "Insert valid email";
+		}
+	});
+
+	//Pass
+	const userPwd = document.getElementById("profile-user-pwd");
+	const pwdError = document.querySelector(".pwd-error");
+
+	userPwd.addEventListener("change", function () {
+		const test = regExpPass.test(userPwd.value);
+
+		if (test) {
+			pwdError.innerHTML = "";
+			userPwd.classList.add("valid");
+			userPwd.classList.remove("invalid");
+		} else {
+			userPwd.classList.remove("valid");
+			userPwd.classList.add("invalid");
+			pwdError.innerHTML =
+				"Insert , 8-15 char puede contener numeros, al menos una mayuscula, al mneos una min";
+		}
+	});
+
+	//Confirm Pass
+	const confUserPwd = document.getElementById("conf-user-pwd");
+	const confPwdError = document.querySelector(".pwd-conf-error");
+
+	confUserPwd.addEventListener("change", function () {
+		const test = userPwd.value == confUserPwd.value;
+
+		if (test) {
+			confPwdError.innerHTML = "";
+			confUserPwd.classList.add("valid");
+			confUserPwd.classList.remove("invalid");
+		} else {
+			confUserPwd.classList.remove("valid");
+			confUserPwd.classList.add("invalid");
+			confPwdError.innerHTML = "Both passwords should match";
 		}
 	});
 
 	const form = document.getElementById("profile-form");
-
-	console.log(email);
-	console.log(form);
 }
 
 export { buy };
-
-function prueba() {
-	// The following is a trick to reach the next sibling Element node in the DOM
-	// This is dangerous because you can easily build an infinite loop.
-	// In modern browsers, you should prefer using element.nextElementSibling
-	let error = email;
-	while ((error = error.nextSibling).nodeType != 1);
-
-	// As per the HTML5 Specification
-	const emailRegExp =
-		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-	// Many legacy browsers do not support the addEventListener method.
-	// Here is a simple way to handle this; it's far from the only one.
-	function addEvent(element, event, callback) {
-		let previousEventCallBack = element["on" + event];
-		element["on" + event] = function (e) {
-			const output = callback(e);
-
-			// A callback that returns `false` stops the callback chain
-			// and interrupts the execution of the event callback.
-			if (output === false) return false;
-
-			if (typeof previousEventCallBack === "function") {
-				output = previousEventCallBack(e);
-				if (output === false) return false;
-			}
-		};
-	}
-
-	// Now we can rebuild our validation constraint
-	// Because we do not rely on CSS pseudo-class, we have to
-	// explicitly set the valid/invalid class on our email field
-	addEvent(window, "load", function () {
-		// Here, we test if the field is empty (remember, the field is not required)
-		// If it is not, we check if its content is a well-formed e-mail address.
-		const test = email.value.length === 0 || emailRegExp.test(email.value);
-
-		email.className = test ? "valid" : "invalid";
-	});
-
-	// This defines what happens when the user types in the field
-	addEvent(email, "input", function () {
-		const test = email.value.length === 0 || emailRegExp.test(email.value);
-		if (test) {
-			email.className = "valid";
-			error.textContent = "";
-			error.className = "error";
-		} else {
-			email.className = "invalid";
-		}
-	});
-
-	// This defines what happens when the user tries to submit the data
-	addEvent(form, "submit", function () {
-		const test = email.value.length === 0 || emailRegExp.test(email.value);
-
-		if (!test) {
-			email.className = "invalid";
-			error.textContent = "I expect an e-mail, darling!";
-			error.className = "error active";
-
-			// Some legacy browsers do not support the event.preventDefault() method
-			return false;
-		} else {
-			email.className = "valid";
-			error.textContent = "";
-			error.className = "error";
-		}
-	});
-}
