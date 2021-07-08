@@ -73,7 +73,7 @@ let templateBuy = `
 							/>
 							<span class="pwd-conf-error" aria-live="polite"></span>
 						</li>
-						<div id="buttons" class="buttons">
+						<div id="buttons" class="buttons-profile">
 							<input
 								type="reset"
 								id="clear"

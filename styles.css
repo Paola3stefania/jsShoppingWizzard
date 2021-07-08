@@ -504,10 +504,10 @@ body {
     border: solid 0.1875rem black;
 }
 
-div.buttons {
+.buttons-profile {
     width: 100%;}
 
-/* .buttons {
+.buttons {
     display: flex;
     justify-content: flex-end;
     height: 1.75rem;
@@ -517,7 +517,7 @@ div.buttons {
     margin-top: 4rem;
     align-content: space-between;
     align-items: flex-end;
-} */
+} 
 
 .main-button {
     background-color: white;
