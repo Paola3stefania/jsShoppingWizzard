@@ -6,6 +6,8 @@ function timer() {
 	let initialMins = 4;
 	let secondsleft = 59;
 
+	console.log(initialMins);
+
 	var crono = setInterval(function () {
 		let minutesLeft = initialMins - minutesCount;
 
@@ -17,7 +19,7 @@ function timer() {
 		}
 
 		document.getElementById("timer").innerHTML =
-			minutesLeft + " : " + secondsleft;
+			"0" + minutesLeft + " : " + secondsleft;
 
 		if (minutesLeft == 0 && secondsleft == 0) {
 			clearInterval(crono);
@@ -33,10 +35,8 @@ function timerIncrement() {
 	console.log(minutesCount);
 	if (minutesCount > 4) {
 		// 5 minutes
-		goToHomepage();
+		location.reload();
 	}
 }
-
-//<div id="timer" class="timer"></div>
 
 export { timer };
