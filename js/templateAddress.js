@@ -36,9 +36,9 @@ let templateAddress = `
             <h2>Address</h2>
             <form>
                 <label for="fname">First name</label><br />
-                <input type="text" id="fname" name="fname" /><br /><br />
+                <input type="text" id="fname" name="fname" required /><br /><br /> 
                 <label for="lname">Last name</label><br />
-                <input type="text" id="lname" name="lname" /><br /><br />
+                <input type="text" id="lname" name="lname" required /><br /><br />
                 <label for="birthday">Birthday</label><br />
                 <input type="date" id="birthday" name="birthday" /><br /><br />
                 <label for="addressf">Address 1</label><br />
@@ -701,5 +701,13 @@ function actualStage() {
 
 //*TODO
 //FORMULARIO CON VALIDACION
+
+/*<input type="text" id="fname" name="fname" />*/
+
+/*<input type="text" id="lname" name="lname" />
+<input type="date" id="birthday" name="birthday" /><br /><br />
+<input type="text" id="addressf" name="addressf"
+<input type="text" id="addresss" name="addressf"
+<input type="number" id="pcode" name="postalcode" /> <br /><br />*/
 
 export { address };
