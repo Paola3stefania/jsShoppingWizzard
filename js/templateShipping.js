@@ -3,11 +3,12 @@ import { goToBuy } from "./router.js";
 
 let shippingHtml = `
 <template id="shipping">
+<div class="main-wrapper">
   <header>
     <h1 class="main-title">Step 3 - Shipping</h1>
-    <div id="shopping_bar">
+    <div class="shopping-bar">
       <div class="line"></div>
-      <ul class="text_progress">
+      <ul class="text-progress">
         <li><strong>Profile</strong></li>
         <li><strong>Address</strong></li>
         <li><strong>Shoping</strong></li>
@@ -29,8 +30,8 @@ let shippingHtml = `
       </ul>
     </div>
   </header>
-  <main id="main_content">
-    <div id="form_content">
+  <main class="main-content">
+    <div class="form-content">
       <form action="">
         <section>
           <h2>Shipping</h2>
@@ -96,12 +97,14 @@ let shippingHtml = `
         <button type="submit" class="buttons sec_button button-next">Next</button>
       </form>
     </div>
-    <div id="timer"></div>
+    <div class="timer"></div>
   </main>
+  </div>
 </template>
 `;
 
 function shipping() {
+  wrapper.innerHTML = ''
   wrapper.insertAdjacentHTML('beforeend', shippingHtml)
 
   let shipping = document.getElementById('shipping').content
