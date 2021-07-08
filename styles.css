@@ -409,7 +409,7 @@ body {
 }
 
 
-/*FORM COMMON AREAS*/
+/**FORM COMMON AREAS*/
 
 h1 {
     text-align: left;
@@ -459,6 +459,10 @@ h1 {
     border: solid 0.0625rem black;
 }
 
+.checked {
+    background-color: black !important;
+}
+
 .main-content {
     display: flex;
     justify-content: space-between;
@@ -470,8 +474,6 @@ h1 {
 
 .form-content {
     height: 31.25rem;
-    width: 10.25rem;
-    border: solid 0.1875rem black;
 }
 
 .timer {
@@ -480,11 +482,11 @@ h1 {
     border: solid 0.1875rem black;
 }
 
-.buttons {
+div.buttons {
     display: flex;
     justify-content: flex-end;
     margin: 0.625rem;
-    width: 4.5rem;
+    width: 8.5rem;
     height: 1.75rem;
     border-radius: 0.1875rem;
 }
@@ -501,4 +503,22 @@ h1 {
     color: white;
     margin-left: 0.3125rem;
     border: solid 0.0625rem white;
+}
+
+input {
+    background-color: transparent;
+    border: solid 0.03125rem black;
+    width: 7.125rem;
+}
+
+.form-control {
+    background-color: transparent;
+    border: solid 0.03125rem black;
+    width: 7.125rem;
+}
+
+select {
+    background-color: transparent;
+    border: solid 0.03125rem black;
+    width: 3.125rem;
 }
