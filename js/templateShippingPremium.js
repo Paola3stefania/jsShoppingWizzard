@@ -16,13 +16,13 @@ let shippingHtml = `
       </ul>
       <ul class="checkpoints">
         <li>
-          <div class="circle"></div>
+          <div class="circle checked"></div>
         </li>
         <li>
-          <div class="circle"></div>
+          <div class="circle checked"></div>
         </li>
         <li>
-          <div class="circle"></div>
+          <div class="circle checked"></div>
         </li>
         <li>
           <div class="circle"></div>
@@ -104,16 +104,16 @@ let shippingHtml = `
 `;
 
 function shipping() {
-  wrapper.innerHTML = ''
-  wrapper.insertAdjacentHTML('beforeend', shippingHtml)
+    wrapper.innerHTML = "";
+    wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 
-  let shipping = document.getElementById('shipping').content
-  let copyShipping = document.importNode(shipping, true)
+    let shipping = document.getElementById("shipping").content;
+    let copyShipping = document.importNode(shipping, true);
 
-	wrapper.appendChild(copyShipping);
-	document.querySelector(".button-next").addEventListener("click", goToBuy);
+    wrapper.appendChild(copyShipping);
+    document.querySelector(".button-next").addEventListener("click", goToBuy);
 
-  wrapper.insertAdjacentHTML('beforeend', shippingHtml)
+    wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 }
 
 export { shipping };
