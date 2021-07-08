@@ -1,5 +1,5 @@
 import { wrapper } from "./main.js";
-import { goToBuy, goToHomepage, goToAddress, goToShipping } from "./router.js";
+import { goToHomepage, goToShipping } from "./router.js";
 
 let templateAddress = `
 <template id="form">

@@ -28,8 +28,7 @@ function goToHomepage() {
 	window.location.hash = "";
 }
 
-function goToAddress(event) {
-	event.preventDefault();
+function goToAddress() {
 	window.location.hash = "address";
 }
 
