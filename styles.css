@@ -56,6 +56,25 @@ body {
 	text-transform: uppercase;
 }
 
+
+/** MENU */
+
+
+/* .menu a {
+	color: #cf2c30;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.menu--actived {
+	border-bottom: 3px solid #cf2c30;
+}
+
+.menu li:not(:last-child) {
+	padding-right: 1.5rem;
+} */
+
+
 /** CATEGORIES */
 
 .categories-title {
