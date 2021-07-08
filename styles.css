@@ -505,9 +505,7 @@ body {
 }
 
 .buttons-profile {
-    width: 100%;}
-
-.buttons {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     height: 1.75rem;
@@ -517,6 +515,16 @@ body {
     margin-top: 4rem;
     align-content: space-between;
     align-items: flex-end;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.625rem;
+    width: 8.5rem;
+    height: 1.75rem;
+    border-radius: 0.1875rem;
 } 
 
 .main-button {
