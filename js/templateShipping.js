@@ -3,75 +3,6 @@ import { goToBuy, goToFinish } from "./router.js";
 
 let shippingHtml = `
 <template id="shipping">
-<<<<<<< HEAD
-<div class="main-wrapper">
-  <header>
-    <h1 class="main-title">Step 3 - Shipping</h1>
-    <div class="shopping-bar">
-      <div class="line"></div>
-      <ul class="text-progress">
-        <li>Profile</li>
-        <li>Address</li>
-        <li>Shipping</li>
-        <li>Finish</li>
-      </ul>
-      <ul class="checkpoints">
-        <li>
-          <div class="circle checked"></div>
-        </li>
-        <li>
-          <div class="circle checked"></div>
-        </li>
-        <li>
-          <div class="circle checked"></div>
-        </li>
-        <li>
-          <div class="circle"></div>
-        </li>
-      </ul>
-    </div>
-  </header>
-  <main class="main-content">
-    <div class="form-content">
-      <form action="">
-        <section>
-          <h2>Shipping</h2>
-          <p>Shipping type</p>
-          <p>Select a maintenance drone:</p>
-          <div>
-            <input
-              type="radio"
-              id="free"
-              name="shipping"
-              value="free"
-              checked
-            />
-            <label for="free"
-              >Free shipment (72H)
-              <span class="bold-text">( no extra cost )</span></label
-            >
-          </div>
-
-          <div>
-            <input type="radio" id="extra" name="shipping" value="extra" />
-            <label for="extra"
-              >Extra shipping (48H)
-              <span class="bold-text">( +5€ )</span></label
-            >
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              id="premium"
-              name="shipping"
-              value="premium"
-            />
-            <label for="premium"
-              >Premium (24h) <span class="bold-text">( +10€ )</span></label
-            >
-          </div>
-=======
   <div class="main-wrapper">
     <header>
       <h1 class="main-title">Step 3 - Shipping</h1>
@@ -119,7 +50,6 @@ let shippingHtml = `
                 <span class="bold-text">( no extra cost )</span></label
               >
             </div>
->>>>>>> e10da88a0e5d048900080d18981bc52c09aafc2a
 
             <div>
               <input type="radio" id="extra" name="shipping" value="extra" />
@@ -175,18 +105,6 @@ let shippingHtml = `
 `;
 
 function shipping() {
-<<<<<<< HEAD
-    wrapper.innerHTML = "";
-    wrapper.insertAdjacentHTML("beforeend", shippingHtml);
-
-    let shipping = document.getElementById("shipping").content;
-    let copyShipping = document.importNode(shipping, true);
-
-    wrapper.appendChild(copyShipping);
-    document.querySelector(".button-next").addEventListener("click", goToBuy);
-
-    wrapper.insertAdjacentHTML("beforeend", shippingHtml);
-=======
   wrapper.innerHTML = "";
   wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 
@@ -197,7 +115,6 @@ function shipping() {
   document.querySelector(".button-next").addEventListener("click", goToFinish);
 
   wrapper.insertAdjacentHTML("beforeend", shippingHtml);
->>>>>>> e10da88a0e5d048900080d18981bc52c09aafc2a
 }
 
 export { shipping };
