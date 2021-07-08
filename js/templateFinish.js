@@ -36,15 +36,15 @@ let finishHtml = `
 `;
 
 function finish() {
-  wrapper.insertAdjacentHTML("beforeend", finishHtml);
+    wrapper.insertAdjacentHTML("beforeend", finishHtml);
 
-  let finish = document.getElementById("finish").content;
-  let copyFinish = document.importNode(finish, true);
+    let finish = document.getElementById("finish").content;
+    let copyFinish = document.importNode(finish, true);
 
-  wrapper.appendChild(copyFinish);
-  document.querySelector(".finish__button").addEventListener("click", goToBuy); //TODO change goToBuy
+    wrapper.appendChild(copyFinish);
+    document.querySelector(".finish__button").addEventListener("click", goToBuy); //TODO change goToBuy
 
-  wrapper.insertAdjacentHTML("beforeend", finishHtml);
+    wrapper.insertAdjacentHTML("beforeend", finishHtml);
 }
 
 export { finish };

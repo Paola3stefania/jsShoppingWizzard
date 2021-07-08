@@ -114,6 +114,7 @@ body {
     text-transform: uppercase;
 }
 
+
 /** CATEGORIES */
 
 .categories-title {
@@ -474,11 +475,12 @@ h1 {
     z-index: 2;
 }
 
-.text-progress {
+.text-progress>li {
     display: flex;
     justify-content: space-around;
     z-index: 3;
     position: relative;
+    font-weight: bolder;
 }
 
 .checkpoints {
