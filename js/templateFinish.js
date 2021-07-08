@@ -14,16 +14,16 @@ let finishHtml = `
 		</ul>
 		<ul class="checkpoints">
 			<li>
-				<div class="circle"></div>
+				<div class="circle checked"></div>
 			</li>
 			<li>
-				<div class="circle"></div>
+				<div class="circle checked"></div>
 			</li>
 			<li>
-				<div class="circle"></div>
+				<div class="circle checked"></div>
 			</li>
 			<li>
-				<div class="circle"></div>
+				<div class="circle checked"></div>
 			</li>
 		</ul>
 	</div>
