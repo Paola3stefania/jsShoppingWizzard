@@ -28,11 +28,13 @@ function goToHomepage() {
 	window.location.hash = "";
 }
 
-function goToAddress() {
+function goToAddress(event) {
+	event.preventDefault();
 	window.location.hash = "address";
 }
 
-function goToShipping() {
+function goToShipping(event) {
+	event.preventDefault();
 	window.location.hash = "shipping";
 }
 

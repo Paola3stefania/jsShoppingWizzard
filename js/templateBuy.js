@@ -4,49 +4,64 @@ import { goToBuy, goToHomepage, goToAddress } from "./router.js";
 let templateBuy = `
 <template id="form">
     <div class="main-wrapper">
-        <main class="inner-container">
-            <div>
-                <ul class="profile-progressBar">
+    <h1>Profile</h1>
+        <div id="profile-bar" class="profile-bar">
+            <div class="line"></div>
+                <ul class="text-progress">
                     <li class="stage-progressBar">Profile</li>
                     <li class="stage-progressBar">Address</li>
                     <li class="stage-progressBar">Shipping</li>
                     <li class="stage-progressBar">Finish</li>
                 </ul>
+                <ul class="checkpoints">
+                <li>
+                    <div class="circle"></div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                </li>
+            </ul>
             </div>
 
-            <div>
-                <form action="" method="post">
-                    <ul>
-                    <li>
-                    <label for="name">UserName:</label>
-                    <input type="text" id="name" name="user_name">
-                    </li>
-                    <li>
-                    <label for="mail">Email:</label>
-                    <input type="email" id="mail" name="user_email">
-                    </li>
-                    <li>
-                        <label for="user-pwd">Password</label>
-                        <input type="password" name="user-password" id="user-pwd">
-                    </li>
-                    <li>
-                        <label for="conf-user-pwd">Confirm Password</label>
-                        <input type="password" name="conf-user-password" id="conf-user-pwd">
-                    </li>
-                    <li class="button">
-                        <button type="submit" value="Submit">Send your message</button>
-                    </li>
-                    <li class="button">
+            <main id="main-content" class="main-content">
+                <div id="form-content" class="form-content">
+                    <form action="" method="post">
+                        <ul>
+                        <li>
+                        <label for="name">UserName:</label>
+                        <input type="text" id="name" name="user_name">
+                        </li>
+                        <li>
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="user_email">
+                        </li>
+                        <li>
+                            <label for="user-pwd">Password</label>
+                            <input type="password" name="user-password" id="user-pwd">
+                        </li>
+                        <li>
+                            <label for="conf-user-pwd">Confirm Password</label>
+                            <input type="password" name="conf-user-password" id="conf-user-pwd">
+                        </li>
+                        <li class="buttons main-button go-next">
+                            <button type="submit" value="Submit">Go Next</button>
+                        </li>
+                        <li class="buttons sec-button">
                         <button type="reset" value="Reset">Reset All</button>
-                    </li>
-                    </ul>
-                </form>
-            </div>
-
-            <button class="go-next">Go Next</button>
-        </main>
-    </div>
-</template>`;
+                        </li>
+                            </ul>
+                        </form>
+				</div>
+                <div id="timer" class="timer"></div>
+			</main>
+		</template>
+`;
 
 function buy() {
 	if (wrapper.innerHTML != "") {
