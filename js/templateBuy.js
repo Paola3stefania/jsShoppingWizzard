@@ -1,6 +1,7 @@
 import { wrapper } from "./main.js";
 import { goToBuy, goToHomepage, goToAddress } from "./router.js";
 
+//template
 let templateBuy = `
 <template id="form">
     <div class="main-wrapper">
@@ -86,7 +87,6 @@ function buy() {
 
 		validateProfile();
 
-		//Add event Listener
 		document
 			.querySelector("#profile-form")
 			.addEventListener("submit", sendForm);
@@ -108,8 +108,15 @@ function actualStage() {
 
 function sendForm(event) {
 	event.preventDefault();
-	goToAddress();
+	if (emailOk && confOk && passOk) {
+		goToAddress();
+	}
 }
+
+//checkvalidation
+let emailOk = false;
+let confOk = false;
+let passOk = false;
 
 function validateProfile() {
 	//FORMULARIO CON VALIDACION - REGEX
@@ -138,10 +145,12 @@ function validateProfile() {
 			emailError.innerHTML = "";
 			email.classList.add("valid");
 			email.classList.remove("invalid");
+			emailOk = true;
 		} else {
 			email.classList.remove("valid");
 			email.classList.add("invalid");
 			emailError.innerHTML = "Insert valid email";
+			emailOk = false;
 		}
 	});
 
@@ -156,11 +165,13 @@ function validateProfile() {
 			pwdError.innerHTML = "";
 			userPwd.classList.add("valid");
 			userPwd.classList.remove("invalid");
+			passOk = true;
 		} else {
 			userPwd.classList.remove("valid");
 			userPwd.classList.add("invalid");
 			pwdError.innerHTML =
 				"Insert , 8-15 char puede contener numeros, al menos una mayuscula, al mneos una min";
+			passOk = false;
 		}
 	});
 
@@ -175,14 +186,14 @@ function validateProfile() {
 			confPwdError.innerHTML = "";
 			confUserPwd.classList.add("valid");
 			confUserPwd.classList.remove("invalid");
+			confOk = true;
 		} else {
 			confUserPwd.classList.remove("valid");
 			confUserPwd.classList.add("invalid");
 			confPwdError.innerHTML = "Both passwords should match";
+			confOk = false;
 		}
 	});
-
-	const form = document.getElementById("profile-form");
 }
 
 export { buy };
