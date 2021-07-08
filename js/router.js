@@ -4,6 +4,7 @@ import { address } from "./templateAddress.js";
 import { shipping } from "./templateShipping.js";
 //TODO import { premiumShipping } from "./templatePremiumShipping.js";
 import { finish } from "./templateFinish.js";
+import { timer } from "./timer.js";
 //TODO import { thankYou } from "./templateThankYou.js";
 
 function navigate() {
@@ -31,6 +32,7 @@ function navigate() {
 function goToBuy(event) {
 	event.preventDefault();
 	window.location.hash = "profile";
+	timer();
 }
 
 function goToHomepage() {
