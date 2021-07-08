@@ -5,6 +5,4 @@ var wrapper = document.getElementById("app");
 
 navigate();
 
-//! Functions
-
 export { wrapper };

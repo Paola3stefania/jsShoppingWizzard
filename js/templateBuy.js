@@ -1,52 +1,72 @@
 import { wrapper } from "./main.js";
 import { goToBuy, goToHomepage, goToAddress } from "./router.js";
 
+//template
 let templateBuy = `
 <template id="form">
-	<div class="main-wrapper">
-			<main class="inner-container">
-					<div>
-							<ul class="profile-progressBar">
-									<li class="stage-progressBar">Profile</li>
-									<li class="stage-progressBar">Address</li>
-									<li class="stage-progressBar">Shipping</li>
-									<li class="stage-progressBar">Finish</li>
-							</ul>
-					</div>
+    <div class="main-wrapper">
+    <h1>Profile</h1>
+        <div id="profile-bar" class="profile-bar">
+            <div class="line"></div>
+                <ul class="text-progress">
+                    <li class="stage-progressBar">Profile</li>
+                    <li class="stage-progressBar">Address</li>
+                    <li class="stage-progressBar">Shipping</li>
+                    <li class="stage-progressBar">Finish</li>
+                </ul>
+                <ul class="checkpoints">
+                <li>
+                    <div class="circle"></div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                </li>
+                <li>
+                    <div class="circle"></div>
+                </li>
+            </ul>
+            </div>
 
-					<div>
-							<form action="" method="post">
-									<ul>
-									<li>
-									<label for="name">UserName:</label>
-									<input type="text" id="name" name="user_name">
-									</li>
-									<li>
-									<label for="mail">Email:</label>
-									<input type="email" id="mail" name="user_email">
-									</li>
-									<li>
-											<label for="user-pwd">Password</label>
-											<input type="password" name="user-password" id="user-pwd">
-									</li>
-									<li>
-											<label for="conf-user-pwd">Confirm Password</label>
-											<input type="password" name="conf-user-password" id="conf-user-pwd">
-									</li>
-									<li class="button">
-											<button type="submit" value="Submit">Send your message</button>
-									</li>
-									<li class="button">
-											<button type="reset" value="Reset">Reset All</button>
-									</li>
-									</ul>
-							</form>
-					</div>
-
-					<button class="go-next">Go Next</button>
+            <main id="main-content" class="main-content">
+                <div id="form-content" class="form-content">
+                    <form id="profile-form" action="" method="post">
+                        <ul>
+                        <li>
+                        <label for="name">UserName:</label>
+                        <input type="text" id="name" name="user_name" required>
+                        </li>
+                        <li>
+                        <label for="mail">Email:
+                        <input type="email" id="profile-mail" name="user_email" required>
+						<span class="email-error" aria-live="polite"></span>
+						</label>
+                        </li>
+                        <li>
+                            <label for="user-pwd">Password</label>
+                            <input type="password" name="user-password" id="profile-user-pwd" required>
+							<span class="pwd-error" aria-live="polite"></span>
+                        </li>
+                        <li>
+                            <label for="conf-user-pwd">Confirm Password</label>
+                            <input type="password" name="conf-user-password" id="conf-user-pwd" required>
+							<span class="pwd-conf-error" aria-live="polite"></span>
+                        </li>
+                        <li class="buttons main-button go-next">
+                            <button type="submit" value="Submit">Go Next</button>
+                        </li>
+                        <li class="buttons sec-button">
+                        <button type="reset" value="Reset">Reset All</button>
+                        </li>
+                            </ul>
+                        </form>
+				</div>
+                <div id="timer" class="timer"></div>
 			</main>
-	</div>
-</template>`;
+		</template>
+`;
 
 function buy() {
 	if (wrapper.innerHTML != "") {
@@ -65,7 +85,11 @@ function buy() {
 
 		actualStage(); //after inserting the node, check stage and toggle class css to selected
 
-		document.querySelector(".go-next").addEventListener("click", goToAddress);
+		validateProfile();
+
+		document
+			.querySelector("#profile-form")
+			.addEventListener("submit", sendForm);
 	} else {
 		goToHomepage();
 	}
@@ -82,7 +106,94 @@ function actualStage() {
 	}
 }
 
-//*TODO
-//FORMULARIO CON VALIDACION
+function sendForm(event) {
+	event.preventDefault();
+	if (emailOk && confOk && passOk) {
+		goToAddress();
+	}
+}
+
+//checkvalidation
+let emailOk = false;
+let confOk = false;
+let passOk = false;
+
+function validateProfile() {
+	//FORMULARIO CON VALIDACION - REGEX
+
+	let regExpPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+	/*
+		/^
+		(?=.*\d)          should contain at least one digit
+		(?=.*[a-z])       should contain at least one lower case
+		(?=.*[A-Z])       should contain at least one upper case
+		[a-zA-Z0-9]{8,}   should contain at least 8 from the mentioned characters
+		$/
+	*/
+
+	let regExpEmail =
+		/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+	//email
+	const email = document.getElementById("profile-mail");
+	const emailError = document.querySelector(".email-error");
+
+	email.addEventListener("change", function () {
+		const test = regExpEmail.test(email.value);
+
+		if (test) {
+			emailError.innerHTML = "";
+			email.classList.add("valid");
+			email.classList.remove("invalid");
+			emailOk = true;
+		} else {
+			email.classList.remove("valid");
+			email.classList.add("invalid");
+			emailError.innerHTML = "Insert valid email";
+			emailOk = false;
+		}
+	});
+
+	//Pass
+	const userPwd = document.getElementById("profile-user-pwd");
+	const pwdError = document.querySelector(".pwd-error");
+
+	userPwd.addEventListener("change", function () {
+		const test = regExpPass.test(userPwd.value);
+
+		if (test) {
+			pwdError.innerHTML = "";
+			userPwd.classList.add("valid");
+			userPwd.classList.remove("invalid");
+			passOk = true;
+		} else {
+			userPwd.classList.remove("valid");
+			userPwd.classList.add("invalid");
+			pwdError.innerHTML =
+				"Insert , 8-15 char puede contener numeros, al menos una mayuscula, al mneos una min";
+			passOk = false;
+		}
+	});
+
+	//Confirm Pass
+	const confUserPwd = document.getElementById("conf-user-pwd");
+	const confPwdError = document.querySelector(".pwd-conf-error");
+
+	confUserPwd.addEventListener("change", function () {
+		const test = userPwd.value == confUserPwd.value;
+
+		if (test) {
+			confPwdError.innerHTML = "";
+			confUserPwd.classList.add("valid");
+			confUserPwd.classList.remove("invalid");
+			confOk = true;
+		} else {
+			confUserPwd.classList.remove("valid");
+			confUserPwd.classList.add("invalid");
+			confPwdError.innerHTML = "Both passwords should match";
+			confOk = false;
+		}
+	});
+}
 
 export { buy };
