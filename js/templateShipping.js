@@ -1,5 +1,5 @@
 import { wrapper } from "./main.js";
-import { goToBuy } from "./router.js";
+import { goToBuy, goToFinish } from "./router.js";
 
 let shippingHtml = `
 <template id="shipping">
@@ -104,16 +104,16 @@ let shippingHtml = `
 `;
 
 function shipping() {
-  wrapper.innerHTML = ''
-  wrapper.insertAdjacentHTML('beforeend', shippingHtml)
+  wrapper.innerHTML = "";
+  wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 
-  let shipping = document.getElementById('shipping').content
-  let copyShipping = document.importNode(shipping, true)
+  let shipping = document.getElementById("shipping").content;
+  let copyShipping = document.importNode(shipping, true);
 
-	wrapper.appendChild(copyShipping);
-	document.querySelector(".button-next").addEventListener("click", goToBuy);
+  wrapper.appendChild(copyShipping);
+  document.querySelector(".button-next").addEventListener("click", goToFinish);
 
-  wrapper.insertAdjacentHTML('beforeend', shippingHtml)
+  wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 }
 
 export { shipping };
