@@ -1,5 +1,5 @@
 import { wrapper } from "./main.js";
-import {  goToFinish } from "./router.js";
+import { goToFinish } from "./router.js";
 
 let shippingPrHtml = `
 <template id="shippingPremium">
@@ -95,23 +95,23 @@ let shippingPrHtml = `
           </div>
         </form>
       </div>
-      <div class="timer"></div>
+      <div id="timer" class="timer"></div>
     </main>
   </div>
 </template>
 `;
 
 function shippingPremium() {
-    wrapper.innerHTML = "";
-    wrapper.insertAdjacentHTML("beforeend", shippingPrHtml);
+	wrapper.innerHTML = "";
+	wrapper.insertAdjacentHTML("beforeend", shippingPrHtml);
 
-    let shipping = document.getElementById("shippingPremium").content;
-    let copyShipping = document.importNode(shipping, true);
+	let shipping = document.getElementById("shippingPremium").content;
+	let copyShipping = document.importNode(shipping, true);
 
-    wrapper.appendChild(copyShipping);
-    document.querySelector(".button-next").addEventListener("click", goToFinish);
+	wrapper.appendChild(copyShipping);
+	document.querySelector(".button-next").addEventListener("click", goToFinish);
 
-    wrapper.insertAdjacentHTML("beforeend", shippingPrHtml);
+	wrapper.insertAdjacentHTML("beforeend", shippingPrHtml);
 }
 
 export { shippingPremium };

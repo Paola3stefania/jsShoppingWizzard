@@ -1,5 +1,3 @@
-import { goToHomepage } from "./router.js";
-
 var minutesCount = 0;
 
 function timer() {
