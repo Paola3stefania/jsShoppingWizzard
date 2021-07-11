@@ -231,27 +231,3 @@ function validateProfile() {
 }
 
 export { buy };
-
-/*
-            <div class="line"></div>
-                <ul class="text-progress">
-                    <li class="stage-progressBar">Profile</li>
-                    <li class="stage-progressBar">Address</li>
-                    <li class="stage-progressBar">Shipping</li>
-                    <li class="stage-progressBar">Finish</li>
-                </ul>
-                <ul class="checkpoints">
-                <li>
-                    <div class="circle checked"></div>
-                </li>
-                <li>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-            </div> */
