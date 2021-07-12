@@ -55,6 +55,10 @@ body {
 	height: 4rem;
 }
 
+h1 { margin: 1rem 0rem;}
+
+p {margin: 0.5rem 0rem;}
+
 /** LOGO */
 
 .logo {
