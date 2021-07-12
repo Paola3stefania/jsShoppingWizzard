@@ -652,7 +652,7 @@ let templateAddress = `
             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                 </select>
                 <input type="tel" id="phone" name="tel" /><br /><br />
-                <input type="checkbox" id="checkb" name="checkb" />
+                <input type="checkbox" id="checkb" name="checkb" class="checkbox" />
                 <label for="checkb">This is my regular address</label><br />
                 <div id="buttons" class="buttons-profile">
                     <input type="reset" id="clear" name="clear" value="Clear Form" class="clear-buttons" />

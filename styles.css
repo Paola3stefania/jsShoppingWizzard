@@ -59,6 +59,10 @@ h1 { margin: 1rem 0rem;}
 
 p {margin: 0.5rem 0rem;}
 
+.checkbox{
+width: fit-content;
+}
+
 /** LOGO */
 
 .logo {
