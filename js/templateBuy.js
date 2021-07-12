@@ -37,11 +37,11 @@ let templateBuy = `
 				<h2>Profile</h2>
 				<form id="profile-form" action="" method="post">
 					<ul>
-						<li>
+						<li class="profile-li">
 							<label for="name">UserName: </label>
 							<input class="input-profile" type="text" id="name" name="user_name" required />
 						</li>
-						<li>
+						<li class="profile-li">
 							<label for="mail">Email: </label>
 								
 								<input
@@ -54,7 +54,7 @@ let templateBuy = `
 								<span class="email-error" aria-live="polite"></span>
 							
 						</li>
-						<li>
+						<li class="profile-li">
 							<label for="user-pwd">Password: </label>
 							<input
 								type="password"
@@ -65,7 +65,7 @@ let templateBuy = `
 							/>
 							<span class="pwd-error" aria-live="polite"></span>
 						</li>
-						<li>
+						<li class="profile-li">
 							<label for="conf-user-pwd">Confirm Password: </label>
 							<input
 								type="password"
