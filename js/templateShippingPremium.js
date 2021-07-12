@@ -108,6 +108,7 @@ function shippingPremium() {
 	let shipping = document.getElementById("shippingPremium").content;
 	let copyShipping = document.importNode(shipping, true);
 
+	wrapper.innerHTML = "";
 	wrapper.appendChild(copyShipping);
 	document.querySelector(".go-next").addEventListener("click", goToFinish);
 

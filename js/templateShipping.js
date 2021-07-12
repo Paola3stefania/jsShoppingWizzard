@@ -1,5 +1,5 @@
 import { wrapper } from "./main.js";
-import { goToShippingPremium } from "./router.js";
+import { goToShippingPremium, goToShipping } from "./router.js";
 
 let shippingHtml = `
 <template id="shipping">
@@ -100,12 +100,15 @@ let shippingHtml = `
 `;
 
 function shipping() {
+	document.querySelector(".go-next").removeEventListener("click", goToShipping);
+
 	wrapper.innerHTML = "";
 	wrapper.insertAdjacentHTML("beforeend", shippingHtml);
 
 	let shipping = document.getElementById("shipping").content;
 	let copyShipping = document.importNode(shipping, true);
 
+	wrapper.innerHTML = "";
 	wrapper.appendChild(copyShipping);
 
 	actualStage();

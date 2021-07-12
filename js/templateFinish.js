@@ -71,6 +71,7 @@ function finish() {
 	let finish = document.getElementById("finish").content;
 	let copyFinish = document.importNode(finish, true);
 
+	wrapper.innerHTML = "";
 	wrapper.appendChild(copyFinish);
 
 	actualStage();

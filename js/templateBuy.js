@@ -114,6 +114,8 @@ function buy() {
 
 		let buy = document.getElementById("form").content;
 		let copyBuy = document.importNode(buy, true);
+
+		wrapper.innerHTML = "";
 		wrapper.appendChild(copyBuy);
 
 		actualStage(); //after inserting the node, check stage and toggle class css to selected
@@ -230,4 +232,4 @@ function validateProfile() {
 	});
 }
 
-export { buy };
+export { buy, sendForm };

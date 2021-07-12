@@ -1,5 +1,6 @@
 import { wrapper } from "./main.js";
 import { goToHomepage, goToShipping } from "./router.js";
+import { sendForm } from "./templateBuy.js";
 
 let templateAddress = `
 <template id="form">
@@ -669,8 +670,8 @@ function address() {
 	if (wrapper.innerHTML != "") {
 		//remove event Listener before deleting de node
 		document
-			.querySelector(".go-next")
-			.removeEventListener("click", goToShipping);
+			.querySelector("#profile-form")
+			.removeEventListener("submit", sendForm);
 
 		wrapper.innerHTML = ""; //Deletes everything
 
@@ -678,6 +679,8 @@ function address() {
 
 		let buy = document.getElementById("form").content;
 		let copyBuy = document.importNode(buy, true);
+
+		wrapper.innerHTML = "";
 		wrapper.appendChild(copyBuy);
 
 		actualStage(); //after inserting the node, check stage and toggle class css to selected
