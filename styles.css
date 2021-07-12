@@ -16,19 +16,6 @@ html {
 	box-sizing: border-box;
 }
 
-/* ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    margin: auto;
-} */
-
 li {
 	width: 100%;
 	display: flex;
@@ -47,12 +34,14 @@ label {
 body {
 	font-family: 'Work Sans', sans-serif;
 	background-color: #eeeeee;
+	margin-top: 3rem;
+
 }
 
 .main-wrapper {
 	max-width: 960px;
 	margin: 0 auto;
-	width: auto;
+	width: 100%;
 	background-color: white;
 }
 
@@ -203,14 +192,7 @@ body {
 	margin-right: 1rem;
 }
 
-.product__button {
-	width: 100%;
-	text-transform: uppercase;
-	padding: 0.5rem 0;
-	margin: 1rem 0;
-	color: white;
-	background-color: #cf2c30;
-}
+
 
 /** PRODUCT INFO DETAIL */
 
@@ -338,7 +320,10 @@ body {
 /** UTILS */
 
 .display-flex {
+
 	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex-start {
@@ -386,7 +371,13 @@ body {
 
 .padding-x-2 {
 	padding: 0 2rem;
+	padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
+
 
 .margin-right-auto {
 	margin-right: auto;
@@ -489,6 +480,10 @@ body {
 	height: 6.25rem;
 	width: 6.25rem;
 	border: solid 0.1875rem black;
+	color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .buttons-profile {
@@ -527,17 +522,19 @@ body {
 	border: solid 0.0625rem white;
 }
 
-.input-profile {
+/* .input-profile {
 	background-color: transparent;
 	border: solid 0.03125rem black;
 	width: 100%;
 	margin: 0.2rem 0;
-}
+} */
 
 input {
 	background-color: transparent;
 	border: solid 0.03125rem black;
-	width: 7.125rem;
+	width: 100%;
+	margin: 0.2rem 0;
+	line-height: 2rem;
 }
 
 .form-control {
@@ -549,7 +546,7 @@ input {
 select {
 	background-color: transparent;
 	border: solid 0.03125rem black;
-	width: 3.125rem;
+	width: -webkit-fill-available;
 }
 
 /** CSS de template Buy*/
@@ -601,12 +598,6 @@ input:focus.invalid {
 	padding: 0.3em;
 }
 
-.profile-submit-buttons {
-	width: fit-content;
-	padding: 0.5rem;
-	margin-right: 1rem;
-}
-
 /** CSS de template Buy FIN */
 .gift-fields {
 	display: none;
@@ -615,3 +606,81 @@ input:focus.invalid {
 .toggle-gift:checked ~ .--isVisible {
 	display: block;
 }
+
+
+/* prueba */
+
+.submit-buttons {
+	width: fit-content;
+	padding: 0.5rem;
+	margin-right: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-black-1);
+    transition: var(--speed-normal);
+    border: 1px solid var(--color-red);
+}
+
+
+:root {
+  --color-red: #ec1840;
+  --color-purple: #7a18ec;
+  --color-white: #fff;
+  --color-black-1: #111;
+  --color-black-2: #222;
+  --color-black-3: #444;
+  --speed-normal: 0.5s;
+  --speed-fast: 0.8s;
+}
+
+
+.submit-buttons:hover {
+    border: 1px solid transparent;
+    background: var(--color-red) url(/assets/pixelRojo.png); /* 360px x 1080px*/
+    transition-delay: 0.8s;
+    background-size: 180px;
+	color: var(--color-white);
+    animation: animate var(--speed-fast) steps(8) forwards;
+  }
+
+  
+  @keyframes animate {
+	0% {
+	  background-position-y: 0;
+	}
+	100% {
+	  background-position-y: -480px;
+	}
+  }
+
+  .product__button {
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+}
+
+
+  .clear-buttons {
+	width: fit-content;
+	padding: 0.5rem;
+	margin-right: 1rem;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--color-black-1);
+    transition: var(--speed-normal);
+    border: 1px solid var(--color-black-1);
+}
+
+.clear-buttons:hover {
+    border: 1px solid transparent;
+    background: var(--color-black-1) url(/assets/pixelGris.jpeg); /* 360px x 1080px*/
+    transition-delay: 0.8s;
+    background-size: 180px;
+	color: var(--color-white);
+    animation: animate var(--speed-fast) steps(8) forwards;
+  }
+
+
+
+

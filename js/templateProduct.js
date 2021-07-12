@@ -151,7 +151,7 @@ let productHtml = `
 									<li class="product-size__item">42</li>
 								</ul>
 							</div>
-							<a href="#buy" class="product__button">comprar</a>
+							<a href="#buy" class="product__button submit-buttons ">comprar</a>
 						</section>
 					</article>
 				</main>

@@ -80,7 +80,7 @@ let templateBuy = `
 							<input
 								type="reset"
 								id="clear"
-								class="profile-submit-buttons input-profile"
+								class="clear-buttons"
 								name="clear"
 								value="Clear All"
 							/>
@@ -89,7 +89,7 @@ let templateBuy = `
 								id="next"
 								name="next"
 								value="Next"
-								class="go-next profile-submit-buttons input-profile"
+								class="go-next submit-buttons"
 							/>
 						</div>
 					</ul>

@@ -9,10 +9,10 @@ let shippingPrHtml = `
       <div class="shopping-bar">
         <div class="line"></div>
         <ul class="text-progress">
-          <li><strong>Profile</strong></li>
-          <li><strong>Address</strong></li>
-          <li><strong>Shoping</strong></li>
-          <li><strong>Finish</strong></li>
+          <li class="stage-progressBar">Profile</li>
+          <li class="stage-progressBar">Address</li>
+          <li class="stage-progressBar">Shipping</li>
+          <li class="stage-progressBar">Finish</li>
         </ul>
         <ul class="checkpoints">
           <li>
@@ -89,9 +89,9 @@ let shippingPrHtml = `
               </div>
             </div>
           </section>
-          <div id="buttons" class="buttons">
-            <input type="reset" id="clear" name="clear" value="Clear Form" class="buttons main-button" />
-            <input type="submit" id="next" name="next" value="Next" class="buttons sec-button button-next" />
+          <div id="buttons" class="buttons-profile">
+            <input type="reset" id="clear" name="clear" value="Clear Form" class="clear-buttons" />
+            <input type="submit" id="next" name="next" value="Next" class="submit-buttons go-next" />
           </div>
         </form>
       </div>
@@ -109,7 +109,7 @@ function shippingPremium() {
 	let copyShipping = document.importNode(shipping, true);
 
 	wrapper.appendChild(copyShipping);
-	document.querySelector(".button-next").addEventListener("click", goToFinish);
+	document.querySelector(".go-next").addEventListener("click", goToFinish);
 
 	wrapper.insertAdjacentHTML("beforeend", shippingPrHtml);
 }

@@ -9,10 +9,10 @@ let templateAddress = `
         <div id="shopping-bar" class="shopping-bar">
             <div class="line"></div>
             <ul class="text-progress">
-                <li>Profile</li>
-                <li>Address</li>
-                <li>Shipping</li>
-                <li>Finish<</li>
+                <li class="stage-progressBar">Profile</li>
+                <li class="stage-progressBar">Address</li>
+                <li class="stage-progressBar">Shipping</li>
+                <li class="stage-progressBar">Finish<</li>
             </ul>
             <ul class="checkpoints">
                 <li>
@@ -654,9 +654,9 @@ let templateAddress = `
                 <input type="tel" id="phone" name="tel" /><br /><br />
                 <input type="checkbox" id="checkb" name="checkb" />
                 <label for="checkb">This is my regular address</label><br />
-                <div id="buttons" class="buttons">
-                    <input type="reset" id="clear" name="clear" value="Clear Form" class="buttons main-button" />
-                    <input type="submit" id="next" name="next" value="Next" class="buttons sec-button go-next" />
+                <div id="buttons" class="buttons-profile">
+                    <input type="reset" id="clear" name="clear" value="Clear Form" class="clear-buttons" />
+                    <input type="submit" id="next" name="next" value="Next" class="submit-buttons go-next" />
                 </div>
             </form>
         </div>

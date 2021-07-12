@@ -7,10 +7,10 @@ let finishHtml = `
 	<div id="shopping-bar" class="shopping-bar">
 		<div class="line"></div>
 		<ul class="text-progress">
-			<li><strong>Profile</strong></li>
-			<li><strong>Address</strong></li>
-			<li><strong>Shipping</strong></li>
-			<li><strong>Finish</strong></li>
+		<li class="stage-progressBar">Profile</li>
+		<li class="stage-progressBar">Address</li>
+		<li class="stage-progressBar">Shipping</li>
+		<li class="stage-progressBar">Finish</li>
 		</ul>
 		<ul class="checkpoints">
 			<li>
@@ -44,7 +44,7 @@ let finishHtml = `
 			<form action="">
 				<imput type="checkbox" id="terms" name="terms" value="Terms and conditions">
 				<label for="terms">I have read and I accept the terms and conditions.</label>
-				<input type="submit" value="Buy Now" class="buttons main-button>
+				<input type="submit" value="Buy Now" class="submit-buttons go-next">
 			</form>
 		</div>
 		<div>
@@ -62,18 +62,32 @@ let finishHtml = `
 `;
 
 function finish() {
-  wrapper.innerHTML = "";
-  wrapper.insertAdjacentHTML("beforeend", finishHtml);
+	wrapper.innerHTML = "";
+	wrapper.insertAdjacentHTML("beforeend", finishHtml);
 
-  let finish = document.getElementById("finish").content;
-  let copyFinish = document.importNode(finish, true);
+	let finish = document.getElementById("finish").content;
+	let copyFinish = document.importNode(finish, true);
 
-  wrapper.appendChild(copyFinish);
-  document
-    .querySelector(".finish__button")
-    .addEventListener("click", goToThankYou);
+	wrapper.appendChild(copyFinish);
 
-  wrapper.insertAdjacentHTML("beforeend", finishHtml);
+	actualStage();
+
+	document
+		.querySelector(".finish__button")
+		.addEventListener("click", goToThankYou);
+
+	wrapper.insertAdjacentHTML("beforeend", finishHtml);
+}
+
+function actualStage() {
+	let page = location.hash.substr(1); //removes the hash #
+	let progressBarArray = document.getElementsByClassName("stage-progressBar");
+
+	for (const isStage of progressBarArray) {
+		if (page === isStage.innerHTML.toLowerCase()) {
+			isStage.classList.toggle("stage-progressBar-selected");
+		}
+	}
 }
 
 export { finish };

@@ -9,10 +9,10 @@ let shippingHtml = `
       <div class="shopping-bar">
         <div class="line"></div>
         <ul class="text-progress">
-          <li><strong>Profile</strong></li>
-          <li><strong>Address</strong></li>
-          <li><strong>Shoping</strong></li>
-          <li><strong>Finish</strong></li>
+          <li class="stage-progressBar">Profile</li>
+          <li class="stage-progressBar">Address</li>
+          <li class="stage-progressBar">Shipping</li>
+          <li class="stage-progressBar">Finish</li>
         </ul>
         <ul class="checkpoints">
           <li>
@@ -88,9 +88,9 @@ let shippingHtml = `
               </div>
             </div>
           </section>
-          <div id="buttons" class="buttons">
-            <input type="reset" id="clear" name="clear" value="Clear Form" class="buttons main-button" />
-            <input type="submit" id="next" name="next" value="Next" class="buttons sec-button button-next" />
+          <div id="buttons" class="buttons-profile">
+            <input type="reset" id="clear" name="clear" value="Clear Form" class="clear-buttons" />
+            <input type="submit" id="next" name="next" value="Next" class="submit-buttons go-next" />
           </div>
       </div>
       <div id="timer" class="timer"></div>
@@ -107,11 +107,25 @@ function shipping() {
 	let copyShipping = document.importNode(shipping, true);
 
 	wrapper.appendChild(copyShipping);
+
+	actualStage();
+
 	document
-		.querySelector(".button-next")
+		.querySelector(".go-next")
 		.addEventListener("click", goToShippingPremium);
 
 	wrapper.insertAdjacentHTML("beforeend", shippingHtml);
+}
+
+function actualStage() {
+	let page = location.hash.substr(1); //removes the hash #
+	let progressBarArray = document.getElementsByClassName("stage-progressBar");
+
+	for (const isStage of progressBarArray) {
+		if (page === isStage.innerHTML.toLowerCase()) {
+			isStage.classList.toggle("stage-progressBar-selected");
+		}
+	}
 }
 
 export { shipping };
