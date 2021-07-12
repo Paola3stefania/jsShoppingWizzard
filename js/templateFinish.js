@@ -4,6 +4,8 @@ import { goToHomepage, goToThankYou } from "./router.js";
 let finishHtml = `
 <template id="finish">
 <div class="main-wrapper">
+<header>
+      <h1 class="main-title">Finish</h1>
 	<div id="shopping-bar" class="shopping-bar">
 		<div class="line"></div>
 		<ul class="text-progress">
@@ -57,6 +59,7 @@ let finishHtml = `
 		</div>
 		<div id="timer" class="timer"></div>
     </main>
+	</header>
 </div>
 </template>
 `;

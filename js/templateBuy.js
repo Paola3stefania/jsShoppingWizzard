@@ -7,7 +7,7 @@ let templateBuy = `
 <template id="form">
 <div class="main-wrapper">
 	<div>
-		<h1>Step 1 - Profile</h1>
+		<h1 class="main-title">Step 1 - Profile</h1>
 		<div id="shopping-bar" class="shopping-bar">
 			<div class="line"></div>
 			<ul class="text-progress">

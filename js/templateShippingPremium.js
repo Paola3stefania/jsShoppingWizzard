@@ -5,7 +5,7 @@ let shippingPrHtml = `
 <template id="shippingPremium">
   <div class="main-wrapper">
     <header>
-      <h1 class="main-title">Step 3 - Shipping - Premium</h1>
+      <h1 class="main-title">Step 3b - Shipping - Premium</h1>
       <div class="shopping-bar">
         <div class="line"></div>
         <ul class="text-progress">
